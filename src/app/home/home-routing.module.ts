@@ -4,17 +4,34 @@ import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tabs',
     component: HomePage,
+    children: [
+      {
+        path: 'main-menu',
+        loadChildren: () =>
+          import('./main-menu/main-menu.module').then(
+            (m) => m.MainMenuPageModule
+          ),
+      },
+      // makes the path return to  main menu when path is null
+      {
+        path: '',
+        redirectTo: '/home/tabs/main-menu',
+        pathMatch: 'full',
+      },
+    ],
   },
+  // makes the path return to  main menu when path is null
   {
-    path: 'main-menu',
-    loadChildren: () => import('./main-menu/main-menu.module').then( m => m.MainMenuPageModule)
-  }
+    path: '',
+    redirectTo: '/home/tabs/main-menu',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class HomePageRoutingModule {}
