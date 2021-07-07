@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'timetable',
     loadChildren: () => import('./timetable/timetable.module').then( m => m.TimetablePageModule)
   },
+  {
+    path: 'notification',
+    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
+  },
 ];
 
 @NgModule({
