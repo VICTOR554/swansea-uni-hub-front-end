@@ -28,6 +28,10 @@ const routes: Routes = [
     redirectTo: '/home/tabs/main-menu',
     pathMatch: 'full',
   },
+  {
+    path: 'timetable',
+    loadChildren: () => import('./timetable/timetable.module').then( m => m.TimetablePageModule)
+  },
 ];
 
 @NgModule({
