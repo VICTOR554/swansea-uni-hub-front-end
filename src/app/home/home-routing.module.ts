@@ -9,10 +9,23 @@ const routes: Routes = [
     children: [
       {
         path: 'main-menu',
-        loadChildren: () =>
-          import('./main-menu/main-menu.module').then(
-            (m) => m.MainMenuPageModule
-          ),
+        loadChildren: () =>import('./main-menu/main-menu.module').then((m) => m.MainMenuPageModule),
+      },
+      {
+        path: 'timetable',
+        loadChildren: () => import('./timetable/timetable.module').then( m => m.TimetablePageModule)
+      },
+      {
+        path: 'notification',
+        loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
+      },
+      {
+        path: 'notes',
+        loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
+      },
+      {
+        path: 'tasks',
+        loadChildren: () => import('./tasks/tasks.module').then( m => m.TasksPageModule)
       },
       // makes the path return to  main menu when path is null
       {
@@ -27,23 +40,7 @@ const routes: Routes = [
     path: '',
     redirectTo: '/home/tabs/main-menu',
     pathMatch: 'full',
-  },
-  {
-    path: 'timetable',
-    loadChildren: () => import('./timetable/timetable.module').then( m => m.TimetablePageModule)
-  },
-  {
-    path: 'notification',
-    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
-  },
-  {
-    path: 'notes',
-    loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
-  },
-  {
-    path: 'tasks',
-    loadChildren: () => import('./tasks/tasks.module').then( m => m.TasksPageModule)
-  },
+  }
 ];
 
 @NgModule({
