@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MainMenuService } from './main-menu.service';
+import { Menu } from './main-menu.model';
 
 @Component({
   selector: 'app-main-menu',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-menu.page.scss'],
 })
 export class MainMenuPage implements OnInit {
+  loadedMenu: Menu[];
 
-  constructor() { }
+  constructor(private mainMenuService: MainMenuService) { }
 
   ngOnInit() {
+    this.loadedMenu = this.mainMenuService.menu;
   }
 
 }

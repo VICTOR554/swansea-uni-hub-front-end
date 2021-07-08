@@ -17,7 +17,23 @@ export class MainMenuService {
     ),
     new Menu(
       'journal',
-      'Submission'
+      'Maps'
+    ),
+    new Menu(
+      'journal',
+      'Booking'
+    ),
+    new Menu(
+      'journal',
+      'Student Union'
+    ),
+    new Menu(
+      'journal',
+      'Event'
+    ),
+    new Menu(
+      'journal',
+      'Key Contact'
     ),
   ];
 
