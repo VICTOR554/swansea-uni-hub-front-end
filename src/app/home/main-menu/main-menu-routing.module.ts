@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'student-union',
     loadChildren: () => import('./student-union/student-union.module').then( m => m.StudentUnionPageModule)
+  },
+  {
+    path: 'event',
+    loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
   }
 ];
 
