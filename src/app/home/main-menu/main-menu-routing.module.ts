@@ -39,6 +39,10 @@ const routes: Routes = [
   {
     path: 'key-contact',
     loadChildren: () => import('./key-contact/key-contact.module').then( m => m.KeyContactPageModule)
+  },
+  {
+    path: 'report',
+    loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
   }
 ];
 
