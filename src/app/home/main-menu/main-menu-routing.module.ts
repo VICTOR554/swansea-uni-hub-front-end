@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'booking',
     loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)
+  },
+  {
+    path: 'student-union',
+    loadChildren: () => import('./student-union/student-union.module').then( m => m.StudentUnionPageModule)
   }
 ];
 
