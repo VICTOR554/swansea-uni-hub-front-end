@@ -8,32 +8,40 @@ export class MainMenuService {
 
   private _menu: Menu[] = [
     new Menu(
-      'calendar',
+      'information-circle-outline',
       'Student information'
     ),
     new Menu(
-      'notifications-outline',
+      'calendar-number-outline',
+      'Submission Deadline'
+    ),
+    new Menu(
+      'library-outline',
       'Library'
     ),
     new Menu(
-      'journal',
+      'map-outline',
       'Maps'
     ),
     new Menu(
-      'journal',
+      'book-outline',
       'Booking'
     ),
     new Menu(
-      'journal',
+      'body-outline',
       'Student Union'
     ),
     new Menu(
-      'journal',
+      'earth-outline',
       'Event'
     ),
     new Menu(
-      'journal',
+      'call-outline',
       'Key Contact'
+    ),
+    new Menu(
+      'alert-circle-outline',
+      'Report'
     ),
   ];
 
