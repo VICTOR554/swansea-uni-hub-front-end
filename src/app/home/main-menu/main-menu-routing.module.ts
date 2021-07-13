@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'submission-deadline',
     loadChildren: () => import('./submission-deadline/submission-deadline.module').then( m => m.SubmissionDeadlinePageModule)
+  },
+  {
+    path: 'library',
+    loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)
   }
 ];
 
