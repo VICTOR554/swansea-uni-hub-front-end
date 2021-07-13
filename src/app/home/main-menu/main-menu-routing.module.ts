@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'library',
     loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)
+  },
+  {
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
   }
 ];
 
