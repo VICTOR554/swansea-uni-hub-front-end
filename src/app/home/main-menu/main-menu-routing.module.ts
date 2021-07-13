@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: 'event',
     loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
+  },
+  {
+    path: 'key-contact',
+    loadChildren: () => import('./key-contact/key-contact.module').then( m => m.KeyContactPageModule)
   }
 ];
 
