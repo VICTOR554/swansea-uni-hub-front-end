@@ -9,39 +9,48 @@ export class MainMenuService {
   private _menu: Menu[] = [
     new Menu(
       'information-circle-outline',
-      'Student information'
+      'Student information',
+      '/home/tabs/main-menu/student-information'
     ),
     new Menu(
       'calendar-number-outline',
-      'Submission Deadline'
+      'Submission Deadline',
+      '/home/tabs/main-menu/submission-deadline'
     ),
     new Menu(
       'library-outline',
-      'Library'
+      'Library',
+      '/home/tabs/main-menu/submission-deadline'
     ),
     new Menu(
       'map-outline',
-      'Maps'
+      'Maps',
+      '/home/tabs/main-menu/maps'
     ),
     new Menu(
       'book-outline',
-      'Booking'
+      'Booking',
+      '/home/tabs/main-menu/booking'
     ),
     new Menu(
       'body-outline',
-      'Student Union'
+      'Student Union',
+      '/home/tabs/main-menu/student-union'
     ),
     new Menu(
       'earth-outline',
-      'Event'
+      'Event',
+      '/home/tabs/main-menu/event'
     ),
     new Menu(
       'call-outline',
-      'Key Contact'
+      'Key Contact',
+      '/home/tabs/main-menu/key-contact'
     ),
     new Menu(
       'alert-circle-outline',
-      'Report'
+      'Report',
+      '/home/tabs/main-menu/report'
     ),
   ];
 
