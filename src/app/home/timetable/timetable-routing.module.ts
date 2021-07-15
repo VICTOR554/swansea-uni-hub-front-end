@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: TimetablePage
+  },
+  {
+    path: 'list-view',
+    loadChildren: () => import('./list-view/list-view.module').then( m => m.ListViewPageModule)
   }
 ];
 
