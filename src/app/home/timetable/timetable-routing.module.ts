@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'list-view',
     loadChildren: () => import('./list-view/list-view.module').then( m => m.ListViewPageModule)
+  },
+  {
+    path: 'grid-view',
+    loadChildren: () => import('./grid-view/grid-view.module').then( m => m.GridViewPageModule)
   }
 ];
 
