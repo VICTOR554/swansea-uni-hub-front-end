@@ -64,6 +64,7 @@ export class MainMenuService {
   ];
 
   get menu() {
+    // eslint-disable-next-line no-underscore-dangle
     return [...this._menu];
   }
   constructor() { }
