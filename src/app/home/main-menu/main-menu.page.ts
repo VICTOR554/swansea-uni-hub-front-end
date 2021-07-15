@@ -9,11 +9,13 @@ import { Menu } from './main-menu.model';
 })
 export class MainMenuPage implements OnInit {
   loadedMenu: Menu[];
+  newMenu: Menu[];
 
   constructor(private mainMenuService: MainMenuService) { }
 
   ngOnInit() {
-    this.loadedMenu = this.mainMenuService.menu;
+    this.loadedMenu = this.mainMenuService.menu.sort((a, b) => a.id-b.id);
+
   }
 
 }

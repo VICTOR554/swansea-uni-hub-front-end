@@ -1,6 +1,19 @@
 <ion-header>
   <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <ion-title>main-menu</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +23,7 @@
       <ion-col *ngFor="let menu of loadedMenu" size="6" size-sm="8" offset-sm="2" class="ion-text-center">
         <ion-card class="fix" href="{{menu.path}}">
           <ion-card-header>
-            <ion-icon size="large" name="{{ menu.icon }}"></ion-icon>
+            <ion-icon color="primary" size="large" name="{{ menu.icon }}"></ion-icon>
           </ion-card-header>
           <ion-card-content class="card-content">{{ menu.title }}</ion-card-content>
         </ion-card>
