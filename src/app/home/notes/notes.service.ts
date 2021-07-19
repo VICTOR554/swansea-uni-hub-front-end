@@ -11,28 +11,29 @@ export class NotesService {
       'HCI REVIEW',
       'HCI',
       'CSCM39',
-      'KAJVHILZFSGHLVJAILBJVADIVB DIBFAIBVIADFBIVIDFBVIDBDIBEKD',
+      // eslint-disable-next-line max-len
+      'Human-Computer Interaction is a discipline concerned with Design, Evaluation,and Implementation of interactive computer systems for human use, and◦with the study of the major phenomena surrounding them',
       '10 am'
     ),
     new Notes(
       'Block',
       'Blockchain',
       'CSCM29',
-      'KAJVHILZFSGHLVJAILBJVADIVB DIBFAIBVIADFBIVIDFBVIDBDIBEKD',
+      'The next block is protected by the transaction id',
       '12 pm'
     ),
     new Notes(
       'Etherium',
       'Blockchain',
       'CSCM29',
-      'KAJVHILZFSGHLVJAILBJVADIVB DIBFAIBVIADFBIVIDFBVIDBDIBEKD',
+      'The contract is vulnerable to attacks if the wrong element are utilised',
       '1:30 pm'
     ),
     new Notes(
       'input verification',
       'Software Testing',
       'CSCM64',
-      'KAJVHILZFSGHLVJAILBJVADIVB DIBFAIBVIADFBIVIDFBVIDBDIBEKD',
+      'By looking at  the input and output of the system the user can verify, if the project is working as expected',
       '4 pm'
     ),
   ];
