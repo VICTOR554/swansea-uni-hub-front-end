@@ -13,17 +13,18 @@ export class NewNotesPage implements OnInit {
   constructor(private notesService: NotesService) { }
 
   ngOnInit() {
-    this.form = new FormGroup({
+     this.form = new FormGroup({
       title: new FormControl(null, {
-        updateOn: 'blur',
-        validators: [Validators.required],
+        updateOn: 'change',
+        validators: [Validators.required,Validators.minLength(1)]
       }),
       moduleCode: new FormControl(null, {
-        updateOn: 'blur',
+        updateOn: 'change',
+        validators: [Validators.required]
       }),
-      body: new FormControl(null, {
-        updateOn: 'blur',
-        validators: [Validators.required, Validators.maxLength(1800)],
+      description: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required, Validators.maxLength(180), Validators.minLength(1)]
       }),
     });
   }
