@@ -84,18 +84,31 @@ const routes: Routes = [
             loadChildren: () => import('./notes/notes.module').then(m => m.NotesPageModule)
           },
           {
-            path: 'new-notes',
-            loadChildren: () => import('./notes/new-notes/new-notes.module').then( m => m.NewNotesPageModule)
+            path: 'new',
+            loadChildren: () => import('./notes/new-notes/new-notes.module').then(m => m.NewNotesPageModule)
           },
           {
-            path: 'edit-notes',
-            loadChildren: () => import('./notes/edit-notes/edit-notes.module').then( m => m.EditNotesPageModule)
+            path: 'edit/:noteId',
+            loadChildren: () => import('./notes/edit-notes/edit-notes.module').then(m => m.EditNotesPageModule)
           }
         ]
       },
       {
         path: 'tasks',
-        loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksPageModule)
+          },
+          {
+            path: 'new',
+            loadChildren: () => import('./tasks/new-tasks/new-tasks.module').then( m => m.NewTasksPageModule)
+          },
+          {
+            path: 'edit/:taskId',
+            loadChildren: () => import('./tasks/edit-tasks/edit-tasks.module').then( m => m.EditTasksPageModule)
+          }
+        ]
       },
       // makes the path return to  main menu when path is null
       {

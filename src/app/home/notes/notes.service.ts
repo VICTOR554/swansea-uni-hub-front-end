@@ -8,6 +8,7 @@ export class NotesService {
 
   private _notes: Notes [] = [
     new Notes(
+      1,
       'HCI REVIEW',
       'HCI',
       'CSCM39',
@@ -16,6 +17,7 @@ export class NotesService {
       '10 am'
     ),
     new Notes(
+      2,
       'Block',
       'Blockchain',
       'CSCM29',
@@ -23,6 +25,7 @@ export class NotesService {
       '12 pm'
     ),
     new Notes(
+      3,
       'Etherium',
       'Blockchain',
       'CSCM29',
@@ -30,6 +33,7 @@ export class NotesService {
       '1:30 pm'
     ),
     new Notes(
+      4,
       'Input verification',
       'Software Testing',
       'CSCM64',

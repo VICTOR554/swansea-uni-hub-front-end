@@ -3,7 +3,7 @@
     <ion-title>notes</ion-title>
 
     <ion-buttons slot="end">
-      <ion-button routerLink="/home/tabs/notes/new-notes">
+      <ion-button routerLink="/home/tabs/notes/new">
         <ion-icon name="add-outline" ></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -18,7 +18,7 @@
         <ion-list>
           <ion-item-sliding *ngFor="let notes of loadedNotes" #slidingItem detail>
 
-            <ion-item detail>
+            <ion-item [routerLink]="['/', 'home', 'tabs', 'notes', 'edit', notes.id]" detail>
               <ion-label>
                 <p class="note-title">{{ notes.title }}</p>
                 <div class="note-div">
