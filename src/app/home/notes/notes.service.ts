@@ -30,7 +30,7 @@ export class NotesService {
       '1:30 pm'
     ),
     new Notes(
-      'input verification',
+      'Input verification',
       'Software Testing',
       'CSCM64',
       'By looking at  the input and output of the system the user can verify, if the project is working as expected',
