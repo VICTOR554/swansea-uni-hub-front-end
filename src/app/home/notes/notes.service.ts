@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Notes } from './notes.model';
+import { Note } from './notes.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
 
-  private _notes: Notes [] = [
-    new Notes(
+  private _notes: Note [] = [
+    new Note(
       1,
       'HCI REVIEW',
       'HCI',
@@ -16,7 +16,7 @@ export class NotesService {
       'Human-Computer Interaction is a discipline concerned with Design, Evaluation,and Implementation of interactive computer systems for human use, and◦with the study of the major phenomena surrounding them',
       '10 am'
     ),
-    new Notes(
+    new Note(
       2,
       'Block',
       'Blockchain',
@@ -24,7 +24,7 @@ export class NotesService {
       'The next block is protected by the transaction id',
       '12 pm'
     ),
-    new Notes(
+    new Note(
       3,
       'Etherium',
       'Blockchain',
@@ -32,7 +32,7 @@ export class NotesService {
       'The contract is vulnerable to attacks if the wrong element are utilised',
       '1:30 pm'
     ),
-    new Notes(
+    new Note(
       4,
       'Input verification',
       'Software Testing',
@@ -47,4 +47,9 @@ export class NotesService {
     return [...this._notes];
   }
   constructor() { }
+
+  getNote(id: string) {
+    // eslint-disable-next-line no-underscore-dangle
+    return {...this._notes.find(p => p.id)};
+  }
 }
