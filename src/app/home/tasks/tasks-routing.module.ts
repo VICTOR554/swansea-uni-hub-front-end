@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'edit-tasks',
     loadChildren: () => import('./edit-tasks/edit-tasks.module').then( m => m.EditTasksPageModule)
+  },
+  {
+    path: 'in-progress',
+    loadChildren: () => import('./in-progress/in-progress.module').then( m => m.InProgressPageModule)
   }
 ];
 
