@@ -107,6 +107,22 @@ const routes: Routes = [
           {
             path: 'edit/:taskId',
             loadChildren: () => import('./tasks/edit-tasks/edit-tasks.module').then( m => m.EditTasksPageModule)
+          },
+          {
+            path: 'in-progress-tasks',
+            loadChildren: () => import('./tasks/in-progress-tasks/in-progress-tasks.module').then( m => m.InProgressTasksPageModule)
+          },
+          {
+            path: 'completed-tasks',
+            loadChildren: () => import('./tasks/completed-tasks/completed-tasks.module').then( m => m.CompletedTasksPageModule)
+          },
+          {
+            path: 'overdue-tasks',
+            loadChildren: () => import('./tasks/overdue-tasks/overdue-tasks.module').then( m => m.OverdueTasksPageModule)
+          },
+          {
+            path: 'flagged-tasks',
+            loadChildren: () => import('./tasks/flagged-tasks/flagged-tasks.module').then( m => m.FlaggedTasksPageModule)
           }
         ]
       },
