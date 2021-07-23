@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Overdue } from '../tasks.model';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-overdue-tasks',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverdueTasksPage implements OnInit {
 
-  constructor() { }
+  loadedOverdueTasks: Overdue [];
+
+  constructor(private taskService: TasksService) { }
 
   ngOnInit() {
+    this.loadedOverdueTasks = this.taskService.overdue;
   }
-
 }
