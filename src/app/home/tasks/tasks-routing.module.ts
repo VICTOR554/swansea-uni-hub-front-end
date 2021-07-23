@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'overdue-tasks',
     loadChildren: () => import('./overdue-tasks/overdue-tasks.module').then( m => m.OverdueTasksPageModule)
+  },
+  {
+    path: 'flagged-tasks',
+    loadChildren: () => import('./flagged-tasks/flagged-tasks.module').then( m => m.FlaggedTasksPageModule)
   }
 ];
 
