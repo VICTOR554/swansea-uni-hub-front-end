@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Completed } from '../tasks.model';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-completed-tasks',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./completed-tasks.page.scss'],
 })
 export class CompletedTasksPage implements OnInit {
+  loadedCompletedTasks: Completed [];
 
-  constructor() { }
+  constructor(private taskService: TasksService) { }
 
   ngOnInit() {
+    this.loadedCompletedTasks = this.taskService.completed;
   }
 
 }

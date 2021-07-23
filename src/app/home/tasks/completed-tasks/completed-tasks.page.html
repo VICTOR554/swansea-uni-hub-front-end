@@ -1,5 +1,45 @@
 
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar showCancelButton="focus"></ion-searchbar>
+        <ion-list>
+          <ion-item-sliding *ngFor="let CompletedTask of loadedCompletedTasks" #slidingItem>
+            <ion-item [routerLink]="['/', 'home', 'tabs', 'tasks', 'edit', CompletedTask._id]" detail>
+              <ion-label>
+                <ion-text>{{ CompletedTask.title }}</ion-text>
+
+                <div class="task-details" class="pb">
+                  <ion-icon name="link" color="primary" class="pt"></ion-icon>
+                  <p class="space-left">{{ CompletedTask.moduleName }}</p>
+                </div>
+                <div class="task-details" class="pbs">
+                  <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
+                  <p class="space-left"> {{ CompletedTask.dueDate }}</p>
+                </div>
+              </ion-label>
+            </ion-item>
+            <ion-item-options>
+              <ion-item-option color="success">
+                <ion-icon name="checkmark-circle-outline" slot="top" class="icon"></ion-icon>
+                Incomplete
+              </ion-item-option>
+              <ion-item-option color="warning">
+                <ion-icon name="flag" slot="top" class="icon"></ion-icon>
+                Flag
+              </ion-item-option>
+              <ion-item-option color="danger">
+                <ion-icon name="trash" slot="top" class="icon"></ion-icon>
+                Delete
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
 </ion-content>
