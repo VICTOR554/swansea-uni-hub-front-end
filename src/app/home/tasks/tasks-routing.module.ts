@@ -17,12 +17,12 @@ const routes: Routes = [
     loadChildren: () => import('./edit-tasks/edit-tasks.module').then( m => m.EditTasksPageModule)
   },
   {
-    path: 'in-progress',
-    loadChildren: () => import('./in-progress/in-progress.module').then( m => m.InProgressPageModule)
-  },
-  {
     path: 'in-progress-tasks',
     loadChildren: () => import('./in-progress-tasks/in-progress-tasks.module').then( m => m.InProgressTasksPageModule)
+  },
+  {
+    path: 'completed-tasks',
+    loadChildren: () => import('./completed-tasks/completed-tasks.module').then( m => m.CompletedTasksPageModule)
   }
 ];
 
