@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Flagged } from '../tasks.model';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-flagged-tasks',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flagged-tasks.page.scss'],
 })
 export class FlaggedTasksPage implements OnInit {
+  loadedFlaggedTasks: Flagged [];
 
-  constructor() { }
+  constructor(private taskService: TasksService) { }
 
   ngOnInit() {
+    this.loadedFlaggedTasks = this.taskService.flagged;
   }
 
 }
