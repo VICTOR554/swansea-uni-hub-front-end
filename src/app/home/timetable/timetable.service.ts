@@ -14,7 +14,7 @@ export class TimetableService {
       '10 am',
       '11 am',
       'david',
-      'engineering building',
+      'ENG',
     ),
     new Activity(
       2,
@@ -23,7 +23,7 @@ export class TimetableService {
       '12 pm',
       '1 pm',
       'sam',
-      'engineering building',
+      'ENG',
     ),
     new Activity(
       3,
@@ -32,7 +32,7 @@ export class TimetableService {
       '2 pm',
       '4 pm',
       'conor',
-      'engineering building',
+      'ENG',
     ),
     new Activity(
       4,
@@ -41,7 +41,7 @@ export class TimetableService {
       '5 pm',
       '6 pm',
       'david',
-      'engineering building',
+      'ENG',
     ),
     new Activity(
       5,
@@ -50,7 +50,7 @@ export class TimetableService {
       '7 pm',
       '8 pm',
       'david',
-      'engineering building',
+      'ENG',
     ),
   ];
 

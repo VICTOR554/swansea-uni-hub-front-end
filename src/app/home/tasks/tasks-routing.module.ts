@@ -9,24 +9,26 @@ const routes: Routes = [
     component: TasksPage,
     children: [
       {
-        path: 'in-progress-tasks',
+        path: 'in-progress',
         loadChildren: () => import('./in-progress-tasks/in-progress-tasks.module').then( m => m.InProgressTasksPageModule)
       },
       {
-        path: 'completed-tasks',
+        path: 'completed',
         loadChildren: () => import('./completed-tasks/completed-tasks.module').then( m => m.CompletedTasksPageModule)
       },
       {
-        path: 'overdue-tasks',
+        path: 'overdue',
         loadChildren: () => import('./overdue-tasks/overdue-tasks.module').then( m => m.OverdueTasksPageModule)
       },
       {
-        path: 'flagged-tasks',
+        path: 'flagged',
         loadChildren: () => import('./flagged-tasks/flagged-tasks.module').then( m => m.FlaggedTasksPageModule)
       },
     ]
   },
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
