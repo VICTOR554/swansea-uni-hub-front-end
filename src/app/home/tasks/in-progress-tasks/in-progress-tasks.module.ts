@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InProgressPageRoutingModule } from './in-progress-routing.module';
+import { InProgressTasksPageRoutingModule } from './in-progress-tasks-routing.module';
 
-import { InProgressPage } from './in-progress.page';
+import { InProgressTasksPage } from './in-progress-tasks.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InProgressPageRoutingModule
+    InProgressTasksPageRoutingModule
   ],
-  declarations: [InProgressPage]
+  declarations: [InProgressTasksPage]
 })
-export class InProgressPageModule {}
+export class InProgressTasksPageModule {}

@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'in-progress',
     loadChildren: () => import('./in-progress/in-progress.module').then( m => m.InProgressPageModule)
+  },
+  {
+    path: 'in-progress-tasks',
+    loadChildren: () => import('./in-progress-tasks/in-progress-tasks.module').then( m => m.InProgressTasksPageModule)
   }
 ];
 
