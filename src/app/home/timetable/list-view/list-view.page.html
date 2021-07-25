@@ -3,18 +3,31 @@
     <ion-grid>
       <ion-row>
 
+        <!-- Reset  -->
+        <ion-buttons>
+          <ion-button slot="icon-only">
+            <ion-icon name="refresh-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
 
         <!-- Current Date -->
         <ion-col>
-          <ion-title class="nopadding textcenter"> 15/12/2021
-          </ion-title>
+          <ion-title class="nopadding textcenter"> 15/12/2021 </ion-title>
         </ion-col>
+
+        <!-- New Timetable -->
+        <ion-buttons class="nopadding textcenter">
+          <ion-button slot="icon-only">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
 
 
       </ion-row>
       <ion-row>
         <ion-col class="nopadding">
           <p class="nopadding textcenter">(Week - 2)</p>
+          <ion-icon class="nopadding textcenter" name="chevron-down-outline"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -106,7 +119,7 @@
                 </ion-col>
 
                 <ion-col>
-                  <p >{{ activity.moduleName }}</p>
+                  <p>{{ activity.moduleName }}</p>
                   <p>{{activity.type}}</p>
 
 
