@@ -1,9 +1,124 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>list-view</ion-title>
+  <ion-toolbar color="primary">
+    <ion-grid>
+      <ion-row>
+
+
+        <!-- Current Date -->
+        <ion-col>
+          <ion-title class="nopadding textcenter"> 15/12/2021
+          </ion-title>
+        </ion-col>
+
+
+      </ion-row>
+      <ion-row>
+        <ion-col class="nopadding">
+          <p class="nopadding textcenter">(Week - 2)</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+  <!--To view the days of the week-->
+  <ion-toolbar class="ion-toolbar2">
+    <ion-grid>
+      <ion-row class="nopadding" class="marginrow">
+        <ion-col class="nopadding">
+          <p class="marginbottom textcenter">Mon</p>
+        </ion-col>
+        <ion-col class="nopadding">
+          <p class="marginbottom textcenter">Tue</p>
+        </ion-col>
+        <ion-col class="nopadding">
+          <p class="marginbottom textcenter">Wed</p>
+        </ion-col>
+        <ion-col class="nopadding">
+          <p class="marginbottom textcenter">Thur</p>
+        </ion-col>
+        <ion-col class="nopadding">
+          <p class="marginbottom textcenter">Fri</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-padding-bottom">
+        <ion-icon name="arrow-back" class="ion-padding-top">
+        </ion-icon>
+
+        <ion-col class="nopadding textcenter">
+          <ion-button shape="round" class="a" class="bround">
+            1
+          </ion-button>
+        </ion-col>
+
+        <ion-col class="nopadding textcenter">
+          <ion-button shape="round" class="bround">
+            2
+          </ion-button>
+        </ion-col>
+
+        <ion-col class="nopadding textcenter">
+          <ion-button shape="round" class="bround">
+            3
+          </ion-button>
+        </ion-col>
+
+        <ion-col class="nopadding textcenter">
+          <ion-button shape="round" class="bround">
+            4
+          </ion-button>
+        </ion-col>
+
+        <ion-col class="nopadding textcenter">
+          <ion-button shape="round" class="bround">
+            5
+          </ion-button>
+        </ion-col>
+
+        <ion-icon class="ion-padding-top" name="arrow-forward">
+        </ion-icon>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid class="nopadding">
+    <!--This is the row containing the activity details-->
+    <ion-row class="nopadding">
+      <ion-col class="nopadding">
+        <ion-list class="nopadding">
+          <ion-card *ngFor="let activity of loadedActivity">
+            <ion-grid class="nopadding">
+              <ion-row class="nopadding">
+                <ion-col class="nopadding textcenter" size="3">
+                  <ion-row>
 
+                    <ion-col size="12" class="ion-padding-top">
+                      <p>{{activity.startTime }}</p>
+                    </ion-col>
+
+                    <ion-col size="12" class="nopadding ">
+                      <p>{{activity.endTime }}</p>
+                    </ion-col>
+
+                  </ion-row>
+                </ion-col>
+
+                <ion-col>
+                  <p >{{ activity.moduleName }}</p>
+                  <p>{{activity.type}}</p>
+
+
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
 </ion-content>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Activity } from '../timetable.model';
+import { TimetableService } from '../timetable.service';
 
 @Component({
   selector: 'app-list-view',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListViewPage implements OnInit {
 
-  constructor() { }
+  loadedActivity: Activity [];
+
+  constructor(private timetableService: TimetableService) { }
 
   ngOnInit() {
+    this.loadedActivity = this.timetableService.activity;
   }
-
 }
