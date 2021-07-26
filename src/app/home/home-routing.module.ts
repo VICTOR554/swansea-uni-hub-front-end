@@ -50,8 +50,17 @@ const routes: Routes = [
           },
           {
             path: 'report',
-            loadChildren: () => import('./main-menu/report/report.module').then(m => m.ReportPageModule)
-          }
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('./main-menu/report/report.module').then(m => m.ReportPageModule)
+              },
+              {
+                path: 'new',
+                loadChildren: () => import('./main-menu/report/new-report/new-report.module').then(m => m.NewReportPageModule)
+              }
+            ]
+          },
         ]
 
       },
@@ -98,11 +107,11 @@ const routes: Routes = [
           },
           {
             path: 'new',
-            loadChildren: () => import('./tasks/new-tasks/new-tasks.module').then( m => m.NewTasksPageModule)
+            loadChildren: () => import('./tasks/new-tasks/new-tasks.module').then(m => m.NewTasksPageModule)
           },
           {
             path: 'edit/:taskId',
-            loadChildren: () => import('./tasks/edit-tasks/edit-tasks.module').then( m => m.EditTasksPageModule)
+            loadChildren: () => import('./tasks/edit-tasks/edit-tasks.module').then(m => m.EditTasksPageModule)
           },
         ]
       },

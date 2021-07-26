@@ -9,7 +9,7 @@ const routes: Routes = [
     component: ReportPage
   },
   {
-    path: 'new-report',
+    path: 'new',
     loadChildren: () => import('./new-report/new-report.module').then( m => m.NewReportPageModule)
   }
 ];
