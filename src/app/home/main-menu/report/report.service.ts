@@ -10,26 +10,30 @@ export class ReportService {
     new Report(
       1,
       'Maps',
-      '12/2/2021',
+      'app',
       'maps does not work',
+      '12/2/2021',
     ),
     new Report(
       2,
       'Timetable',
-      '12/2/2021',
+      'accomodation',
       'timetable is trash',
+      '12/2/2021',
     ),
     new Report(
       3,
-      'Notes',
+      'Blood on the beach',
+      'beach',
+      'There is a dead body',
       '12/2/2021',
-      'Notes is trash',
     ),
     new Report(
       4,
-      'Event',
+      'timetable',
+      'app',
+      'Time table is down',
       '12/2/2021',
-      'Event is trash',
     ),
   ];
 

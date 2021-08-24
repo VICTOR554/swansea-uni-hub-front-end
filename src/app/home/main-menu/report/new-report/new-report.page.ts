@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReportService } from '../report.service';
 
 @Component({
   selector: 'app-new-report',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewReportPage implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(private reportService: ReportService) { }
 
   ngOnInit() {
+     this.form = new FormGroup({
+      title: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required,Validators.minLength(1)]
+      }),
+      topic: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required]
+      }),
+      description: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required, Validators.maxLength(180), Validators.minLength(1)]
+      }),
+    });
   }
+
+  onCreateReport() {
+    console.log(this.form);
+  }
+
 
 }
