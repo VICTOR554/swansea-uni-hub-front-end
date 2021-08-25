@@ -1,9 +1,88 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit-tasks</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/tabs/tasks"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="form" class="ion-text-center">Edit Task- Task title</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button *ngIf="form" (click)="onUpdateTask()"  [disabled]="!form.valid" type="submit"   >
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <form  [formGroup]="form" >
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="title"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!form.get('title').valid && form.get('title').touched">
+        <ion-col size-sm="6" offset-sm="3">
+          <P>Title must have 1 or more characters</P>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Module</ion-label>
+            <ion-select placeholder="Select a Module" autocomplete autocorrect formControlName="moduleCode">
+              <ion-select-option value="0">Blank</ion-select-option>
+              <ion-select-option value="CS3003">Software Engineering</ion-select-option>
+              <ion-select-option value="CS3009">Human-Computer Interaction</ion-select-option>
+              <ion-select-option value="CS3001-CS3606">Advanced Topics </ion-select-option>
+              <ion-select-option value="CS3072-CS3605">Final Year Project</ion-select-option>
+              <ion-select-option value="CS3100">Software Project Management</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!form.get('moduleCode').valid && form.get('moduleCode').touched && form.get('moduleCode').valueChanges">
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-text color="danger">Pick a module or blank</ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Due date</ion-label>
+            <ion-datetime
+            display-format="DDD DD MMM YYYY hh:mm A"
+            picker-format="DD MMM YYYY  HH:mm "
+            value="{{date | date: 'DD/MMM/YYYY' }}"
+            min="{{date | date: 'yyyy-MM-dd' }}"
+            max="2040-12-31"
+            minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"
+            required formControlName="dueDate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Short Descripton</ion-label>
+            <ion-textarea rows="6" formControlName="descripton"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!form.get('descripton').valid && form.get('descripton').touched">
+        <ion-col size-sm="6" offset-sm="3">
+          <P>Description must be between 1 and 180 chracters</P>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
