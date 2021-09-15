@@ -124,7 +124,7 @@
                       <p>{{activity.startTime }}</p>
                     </ion-col>
 
-                    <ion-col size="12" class="nopadding ">
+                    <ion-col size="12" class="ion-padding-bottom">
                       <p>{{activity.endTime }}</p>
                     </ion-col>
 
@@ -135,6 +135,22 @@
                   <p>{{ activity.moduleName }}</p>
                   <p>{{activity.type}}</p>
 
+                  <ion-row>
+                    <ion-col class="nopadding">
+                      <ion-button size="small" shape="round" class="iround"
+                        [routerLink]="">
+                        <ion-icon name="pin"></ion-icon>
+                      </ion-button>
+                      <label class="label">-{{activity.location}}</label>
+                    </ion-col>
+
+                    <ion-col class="nopadding">
+                      <ion-button size="small" shape="round" class="iround">
+                        <ion-icon name="person"></ion-icon>
+                      </ion-button>
+                      <label class="label">-{{activity.lecturerName}}</label>
+                    </ion-col>
+                  </ion-row>
 
                 </ion-col>
               </ion-row>

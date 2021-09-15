@@ -23,7 +23,7 @@ export class TimetableService {
       '12 pm',
       '1 pm',
       'sam',
-      'ENG',
+      'DPD',
     ),
     new Activity(
       3,
@@ -32,7 +32,7 @@ export class TimetableService {
       '2 pm',
       '4 pm',
       'conor',
-      'ENG',
+      'FFS',
     ),
     new Activity(
       4,
@@ -41,7 +41,7 @@ export class TimetableService {
       '5 pm',
       '6 pm',
       'david',
-      'ENG',
+      'FMO',
     ),
     new Activity(
       5,
@@ -50,7 +50,7 @@ export class TimetableService {
       '7 pm',
       '8 pm',
       'david',
-      'ENG',
+      'NPO',
     ),
   ];
 
