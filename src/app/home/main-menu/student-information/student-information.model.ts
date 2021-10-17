@@ -1,10 +1,11 @@
 export class StudentInformation {
+  open: boolean;
   constructor(
     public title: string,
-    public personalInformation: Array<PersonalInformation>,
-    public courseDetails: Array<CourseDetails>,
-    public moduleDetails: Array<ModuleDetails>,
-    public financeDetails: Array<FinanceDetails>,
+    public personalInformation: string,
+    public courseDetails: string,
+    public moduleDetails: string,
+    public financeDetails: string,
 
     ) {}
 }

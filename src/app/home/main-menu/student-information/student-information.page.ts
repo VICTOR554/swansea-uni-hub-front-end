@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentInformationService } from './student-information.service';
+import { StudentInformation } from './student-information.model';
 
 @Component({
   selector: 'app-student-information',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-information.page.scss'],
 })
 export class StudentInformationPage implements OnInit {
+  loadedStudentInformation: StudentInformation[];
 
-  constructor() { }
+
+  constructor(private studentInformationService: StudentInformationService) { }
 
   ngOnInit() {
+    this.loadedStudentInformation = this.studentInformationService.studentInformation;
   }
+
 
 }
