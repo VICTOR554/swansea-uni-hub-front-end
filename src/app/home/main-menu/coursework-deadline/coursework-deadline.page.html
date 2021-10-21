@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/tabs/main-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>coursework-deadline</ion-title>
+  </ion-toolbar>
+
+
+
+</ion-header>
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)" class="segment">
+    <ion-segment-button value="Current">
+      <ion-label>Current</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Past">
+      <ion-label>Past</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+</ion-content>

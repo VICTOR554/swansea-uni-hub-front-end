@@ -13,10 +13,6 @@ const routes: Routes = [
     loadChildren: () => import('./student-information/student-information.module').then( m => m.StudentInformationPageModule)
   },
   {
-    path: 'submission-deadline',
-    loadChildren: () => import('./submission-deadline/submission-deadline.module').then( m => m.SubmissionDeadlinePageModule)
-  },
-  {
     path: 'library',
     loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)
   },
@@ -43,6 +39,10 @@ const routes: Routes = [
   {
     path: 'report',
     loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
+  },
+  {
+    path: 'coursework-deadline',
+    loadChildren: () => import('./coursework-deadline/coursework-deadline.module').then( m => m.CourseworkDeadlinePageModule)
   }
 ];
 

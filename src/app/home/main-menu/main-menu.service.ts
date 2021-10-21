@@ -16,8 +16,8 @@ export class MainMenuService {
     new Menu(
       1,
       'calendar-number-outline',
-      'Submission Deadline',
-      '/home/tabs/main-menu/submission-deadline'
+      'Coursework Deadline',
+      '/home/tabs/main-menu/coursework-deadline'
     ),
     new Menu(
       2,

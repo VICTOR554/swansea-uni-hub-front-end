@@ -20,9 +20,9 @@ const routes: Routes = [
             loadChildren: () => import('./main-menu/student-information/student-information.module').then(m => m.StudentInformationPageModule)
           },
           {
-            path: 'submission-deadline',
+            path: 'coursework-deadline',
             // eslint-disable-next-line max-len
-            loadChildren: () => import('./main-menu/submission-deadline/submission-deadline.module').then(m => m.SubmissionDeadlinePageModule)
+            loadChildren: () => import('./main-menu/coursework-deadline/coursework-deadline.module').then(m => m.CourseworkDeadlinePageModule)
           },
           {
             path: 'library',
