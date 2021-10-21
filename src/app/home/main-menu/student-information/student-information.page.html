@@ -19,10 +19,66 @@
         <ion-card-header class="header">
           <ion-card-title class="title">General Information </ion-card-title>
         </ion-card-header>
-        <ion-card-content class="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum unde, recusandae qui
-          perferendis dolores nam
-          natus vitae blanditiis. Facilis aspernatur ullam voluptatem quia adipisci possimus deleniti cum repudiandae
-          excepturi corrupti.</ion-card-content>
+        <ion-list *ngFor="let studentInfo of loadedStudentInformation" class="content" lines="none">
+          <ion-item>
+            <ion-text>Name: {{studentInfo.name}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Number: {{studentInfo.studentNumber}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Gender: {{studentInfo.gender}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>DOB: {{studentInfo.dateOfBirth}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Nationality: {{studentInfo.nationality}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Telephone: {{studentInfo.telephone}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Email: {{studentInfo.email}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Address: {{studentInfo.address}}</ion-text>
+          </ion-item>
+        </ion-list>
+      </li>
+
+      <li>
+        <input type="checkbox" checked>
+        <div>
+          <ion-icon name="chevron-down-outline" color="primary" class="icon"></ion-icon>
+        </div>
+        <ion-card-header class="header">
+          <ion-card-title class="title">Course</ion-card-title>
+        </ion-card-header>
+        <ion-list *ngFor="let studentInfo of loadedStudentInformation" class="content" lines="none">
+          <ion-item>
+            <ion-text>Course: {{studentInfo.courseId}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Department: {{studentInfo.department}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Degree: {{studentInfo.degree}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Status: {{studentInfo.status}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Enrollment Status: {{studentInfo.enrollement}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>duration: {{studentInfo.duration.startTime}} - {{studentInfo.duration.endTime}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Specialism: {{studentInfo.specialism}}</ion-text>
+          </ion-item>
+        </ion-list>
+
       </li>
 
       <li>
@@ -33,10 +89,18 @@
         <ion-card-header class="header">
           <ion-card-title class="title">Module</ion-card-title>
         </ion-card-header>
-        <ion-card-content class="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum unde, recusandae qui
-          perferendis dolores nam
-          natus vitae blanditiis. Facilis aspernatur ullam voluptatem quia adipisci possimus deleniti cum repudiandae
-          excepturi corrupti.</ion-card-content>
+        <ion-list *ngFor="let studentInfo of loadedStudentInformation" class="content" lines="none">
+          <ion-item>
+            <ion-text>Modules: {{studentInfo.modules.name[1]}}, {{studentInfo.modules.name[2]}}, {{studentInfo.modules.name[3]}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Department: {{studentInfo.department}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Degree: {{studentInfo.degree}}</ion-text>
+          </ion-item>
+        </ion-list>
+
 
       </li>
 
@@ -48,10 +112,14 @@
         <ion-card-header class="header">
           <ion-card-title class="title">Finance </ion-card-title>
         </ion-card-header>
-        <ion-card-content class="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum unde, recusandae qui
-          perferendis dolores nam
-          natus vitae blanditiis. Facilis aspernatur ullam voluptatem quia adipisci possimus deleniti cum repudiandae
-          excepturi corrupti.</ion-card-content>
+        <ion-list *ngFor="let studentInfo of loadedStudentInformation" class="content" lines="none">
+          <ion-item>
+            <ion-text>Tuition Fee: {{studentInfo.finance.tuitionBalance}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Payment: {{studentInfo.finance.accomodationBalance[1]}} + {{studentInfo.finance.accomodationBalance[2]}}</ion-text>
+          </ion-item>
+        </ion-list>
 
       </li>
     </ul>

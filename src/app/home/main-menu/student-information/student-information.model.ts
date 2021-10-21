@@ -1,54 +1,45 @@
 export class StudentInformation {
   open: boolean;
   constructor(
-    public title: string,
-    public personalInformation: string,
-    public courseDetails: string,
-    public moduleDetails: string,
-    public financeDetails: string,
-
-    ) {}
-}
-
-export class PersonalInformation {
-  constructor(
-    public id: number,
+    public studentNumber: number,
     public name: string,
-    public dob: number,
     public gender: string,
+    public dateOfBirth: string,
     public nationality: string,
+    public telephone: string,
     public email: string,
-    public homeAddress: string,
-    public phoneNumber: number,
-
-    ) {}
-}
-
-export class CourseDetails {
-  constructor(
-    public code: number,
-    public houseCampus: string,
-    public college: string,
+    public address: string,
+    public homeCampus: string,
     public department: string,
-    public type: string,
-    public duration: string,
-    public awardingBody: string,
+    public courseId: number,
+    public degree: string,
+    public status: string,
+    public enrollement: string,
+    public duration: Duration,
+    public specialism: string,
+    public modules: Module,
+    public finance: Finance,
+
     ) {}
 }
 
-export class ModuleDetails {
+export class Module {
   constructor(
+    public name: string[],
     public code: number,
-    public name: string,
-    public department: number,
-    public level: string,
-    public duration: string,
+    public courseId: number,
     ) {}
 }
 
-export class FinanceDetails {
+export class Finance {
   constructor(
-    public tuitionBlalance: number,
-    public accomodationBalance: string,
+    public tuitionBalance: number,
+    public accomodationBalance: number[],
+    ) {}
+}
+export class Duration {
+  constructor(
+    public startTime: string,
+    public endTime: string,
     ) {}
 }
