@@ -9,6 +9,7 @@ import { CourseworkDeadlineService } from './coursework-deadline.service';
 })
 export class CourseworkDeadlinePage implements OnInit {
   loadedCourseworkDeadline: CourseworkDeadline[];
+  selectSegment = 'current';
 
   constructor(private courseworkDeadlineService: CourseworkDeadlineService ) { }
 
@@ -16,8 +17,5 @@ export class CourseworkDeadlinePage implements OnInit {
     this.loadedCourseworkDeadline = this.courseworkDeadlineService.courseworkDeadline;
   }
 
-  segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
-  }
 
 }
