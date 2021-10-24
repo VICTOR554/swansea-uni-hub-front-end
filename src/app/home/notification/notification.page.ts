@@ -9,6 +9,7 @@ import { NotificationService } from './notification.service';
 })
 export class NotificationPage implements OnInit {
   loadedNotification: Notification[];
+  selectSegment = 'current';
 
   constructor(private notificationService: NotificationService) { }
 

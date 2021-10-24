@@ -28,16 +28,16 @@ export class NotificationService {
       'Change classrooms',
       'bullock',
       'Lorem ipsum dolor sit amet consectetur adipisicing',
-      'current',
-      '20/08/2021',
+      'past',
+      '20/08/2020',
     ),
     new Notification(
       202030,
       'No lab',
       'tom',
       'Lorem ipsum dolor sit amet consectetur adipisicing',
-      'current',
-      '20/08/2021',
+      'past',
+      '20/08/2020',
     ),
   ];
 

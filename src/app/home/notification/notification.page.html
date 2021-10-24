@@ -5,5 +5,97 @@
 </ion-header>
 
 <ion-content>
+  <ion-segment [(ngModel)]="selectSegment" class="segment">
+    <ion-segment-button value="current">
+      <ion-label>Current</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="past">
+      <ion-label>Past</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
+  <ion-grid class="nopadding">
+    <ion-row class="nopadding">
+      <ion-col class="nopadding">
+        <ion-list class="nopadding" *ngFor="let notification of loadedNotification">
+          <ion-card *ngIf=" selectSegment === 'current' &&  notification.status === 'current'">
+            <ion-grid class="nopadding">
+              <ion-row class="nopadding">
+                <ion-col>
+                  <ion-row>
+                    <ion-col>
+                      <ion-text>{{ notification.moduleCode }}</ion-text>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-text>{{notification.title}}</ion-text>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-label>
+
+                    <div class="content" class="pbs">
+                      <ion-icon name="link" color="primary" class="pt"></ion-icon>
+                      <p class="space-left">{{notification.lecturerName}}</p>
+                    </div>
+                    <div class="content" class="pbs">
+                      <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
+                      <p class="space-left">{{notification.date}}</p>
+                    </div>
+                    <div class="content" class="pbs">
+                      <ion-icon color="primary" name="bar-chart-outline" class="pt"></ion-icon>
+                      <p class="space-left">{{notification.description}}</p>
+                    </div>
+                  </ion-label>
+
+
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-list>
+
+        <ion-list class="nopadding" *ngFor="let notification of loadedNotification">
+          <ion-card *ngIf=" selectSegment === 'past' &&  notification.status === 'past'">
+            <ion-grid class="nopadding">
+              <ion-row class="nopadding">
+                <ion-col>
+                  <ion-row>
+                    <ion-col>
+                      <ion-text>{{ notification.moduleCode }}</ion-text>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-text>{{notification.title}}</ion-text>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-label>
+
+                    <div class="content" class="pbs">
+                      <ion-icon name="link" color="primary" class="pt"></ion-icon>
+                      <p class="space-left">{{notification.lecturerName}}</p>
+                    </div>
+                    <div class="content" class="pbs">
+                      <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
+                      <p class="space-left">{{notification.date}}</p>
+                    </div>
+                    <div class="content" class="pbs">
+                      <ion-icon color="primary" name="bar-chart-outline" class="pt"></ion-icon>
+                      <p class="space-left">{{notification.description}}</p>
+                    </div>
+                  </ion-label>
+
+
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
