@@ -45,8 +45,8 @@ const routes: Routes = [
             loadChildren: () => import('./main-menu/event/event.module').then(m => m.EventPageModule)
           },
           {
-            path: 'key-contact',
-            loadChildren: () => import('./main-menu/key-contact/key-contact.module').then(m => m.KeyContactPageModule)
+            path: 'contact',
+            loadChildren: () => import('./main-menu/contact/contact.module').then(m => m.ContactPageModule)
           },
           {
             path: 'report',

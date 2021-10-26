@@ -52,8 +52,8 @@ export class MainMenuService {
     new Menu(
       7,
       'call-outline',
-      'Key Contact',
-      '/home/tabs/main-menu/key-contact'
+      'Contact',
+      '/home/tabs/main-menu/contact'
     ),
     new Menu(
       8,

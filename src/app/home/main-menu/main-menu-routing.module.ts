@@ -33,16 +33,16 @@ const routes: Routes = [
     loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
   },
   {
-    path: 'key-contact',
-    loadChildren: () => import('./key-contact/key-contact.module').then( m => m.KeyContactPageModule)
-  },
-  {
     path: 'report',
     loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
   },
   {
     path: 'coursework-deadline',
     loadChildren: () => import('./coursework-deadline/coursework-deadline.module').then( m => m.CourseworkDeadlinePageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
   }
 ];
 
