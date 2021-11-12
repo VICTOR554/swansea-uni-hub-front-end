@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Contact } from './contact.model';
+import { AcademicService, CampusAddress, Contact, GeneralEnquiries } from './contact.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +7,21 @@ import { Contact } from './contact.model';
 export class ContactService {
   private _contact: Contact[] = [
     new Contact(
-      'Campus address',
-      'Lorem',
-      'Swansea University Singleton Park SwanseaSA2 8PP Wales, UK',
-      'Nigeria',
-      '07832876674',
-      '2039887@swansea.ac.uk',
+      new GeneralEnquiries(
+        '+44 (0)1792 205678',
+        '+44 (0)1792 513100'
+      ),
+      new CampusAddress(
+        ['Singleton', 'Bay Campus'],
+        ['Swansea University, Singleton Park, Swansea, SA2 8PP, Wales, UK', 'Swansea University, Bay campus, Swansea, SA2 8PP, Wales, UK' ]
+      ),
+      new AcademicService(
+        'Lorem Ipsum',
+        '+44 (0) 1792 606000',
+        'unihub@swansea.ac.uk',
+        ' 8am- 4pm',
+        'singleton'
+      ),
     ),
   ];
 
