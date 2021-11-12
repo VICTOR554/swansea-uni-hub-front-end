@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from './contact.model';
+import { ContactService } from './contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.page.scss'],
 })
 export class ContactPage implements OnInit {
+  loadedContact: Contact[];
 
-  constructor() { }
+
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
+    this.loadedContact = this.contactService.contact;
+
   }
 
 }
