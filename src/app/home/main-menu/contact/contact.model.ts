@@ -10,6 +10,7 @@ export class Contact {
 
 export class GeneralEnquiries {
   constructor(
+    public description: string,
     public tel: string,
     public minicom: string,
     ) {}

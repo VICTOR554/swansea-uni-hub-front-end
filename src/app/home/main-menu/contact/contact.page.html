@@ -9,4 +9,88 @@
 
 <ion-content>
 
+  <ion-card id="dropdown">
+    <ul>
+      <li>
+        <input type="checkbox" checked>
+        <div>
+          <ion-icon name="chevron-down-outline" color="primary" class="icon"></ion-icon>
+        </div>
+        <ion-card-header class="header">
+          <ion-card-title class="title">General Enquiry </ion-card-title>
+        </ion-card-header>
+        <ion-list *ngFor="let contact of loadedContact" class="content" lines="none">
+          <ion-item>
+            <ion-text> {{contact.generalEnquiries.description}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Telephone: {{contact.generalEnquiries.tel}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Minicom: {{contact.generalEnquiries.minicom}}</ion-text>
+          </ion-item>
+
+        </ion-list>
+      </li>
+
+      <li>
+        <input type="checkbox" checked>
+        <div>
+          <ion-icon name="chevron-down-outline" color="primary" class="icon"></ion-icon>
+        </div>
+        <ion-card-header class="header">
+          <ion-card-title class="title">Campus Address</ion-card-title>
+        </ion-card-header>
+        <ion-list *ngFor="let contact of loadedContact" class="content" lines="none">
+          <ion-item>
+            <ion-text>Campus: {{contact.campusAddress.name[0]}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Address: {{contact.campusAddress.address[0]}}</ion-text>
+          </ion-item>
+
+          <ion-item>
+            <ion-text>Campus: {{contact.campusAddress.name[1]}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Address: {{contact.campusAddress.address[1]}}</ion-text>
+          </ion-item>
+
+        </ion-list>
+
+      </li>
+
+      <li>
+        <input type="checkbox" checked>
+        <div>
+          <ion-icon name="chevron-down-outline" color="primary" class="icon"></ion-icon>
+        </div>
+        <ion-card-header class="header">
+          <ion-card-title class="title">Academic Service</ion-card-title>
+        </ion-card-header>
+        <ion-list *ngFor="let contact of loadedContact" class="content" lines="none">
+          <ion-item>
+            <ion-text>Description: {{contact.academicServices.description}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Email: {{contact.academicServices.email}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Office Hour: {{contact.academicServices.officeHour}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Telephone: {{contact.academicServices.tel}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Location: {{contact.academicServices.location}}</ion-text>
+          </ion-item>
+
+        </ion-list>
+
+
+      </li>
+
+    </ul>
+  </ion-card>
+
 </ion-content>

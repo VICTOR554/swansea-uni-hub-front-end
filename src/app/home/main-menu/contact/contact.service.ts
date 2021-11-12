@@ -8,6 +8,7 @@ export class ContactService {
   private _contact: Contact[] = [
     new Contact(
       new GeneralEnquiries(
+        'We welcome calls in Welsh or English Croesewir galwadau yn Gymraeg a Saesneg',
         '+44 (0)1792 205678',
         '+44 (0)1792 513100'
       ),
