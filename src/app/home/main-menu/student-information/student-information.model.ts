@@ -1,5 +1,4 @@
 export class StudentInformation {
-  open: boolean;
   constructor(
     public studentNumber: number,
     public name: string,
