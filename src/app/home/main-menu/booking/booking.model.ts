@@ -1,4 +1,4 @@
-export class StudentInformation {
+export class Booking {
   constructor(
     public title: string,
     public description: string,
