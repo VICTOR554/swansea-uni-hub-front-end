@@ -1,8 +1,8 @@
 export class Booking {
   constructor(
-    public title: string,
-    public description: string,
+    public topic: string,
     public status: string,
+    public type: string,
     public location: string,
     public dueDate: string,
 
