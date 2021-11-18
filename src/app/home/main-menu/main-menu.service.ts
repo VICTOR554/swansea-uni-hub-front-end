@@ -23,7 +23,7 @@ export class MainMenuService {
       2,
       'library-outline',
       'Library',
-      '/home/tabs/main-menu/submission-deadline'
+      '/home/tabs/main-menu/library'
     ),
     new Menu(
       3,
