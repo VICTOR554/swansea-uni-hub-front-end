@@ -60,8 +60,8 @@
             <ion-datetime
             display-format="DDD DD MMM YYYY hh:mm A"
             picker-format="DD MMM YYYY  HH:mm "
-            value="{{date | date: 'DD/MMM/YYYY' }}"
-            min="{{date | date: 'yyyy-MM-dd' }}"
+            value="{{currentDate | date: 'DD/MMM/YYYY' }}"
+            min="{{currentDate | date: 'yyyy-MM-dd' }}"
             max="2040-12-31"
             minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"
             required formControlName="dueDate"></ion-datetime>

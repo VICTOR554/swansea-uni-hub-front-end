@@ -7,13 +7,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NewTasksPage implements OnInit {
   form: FormGroup;
-  date;
-  latestDate;
+  currentDate;
 
   constructor() { }
 
   ngOnInit() {
-    this.date = new Date().toISOString();
+    this.currentDate = new Date().toISOString();
     this.form = new FormGroup({
       title: new FormControl(null, {
         updateOn: 'blur',

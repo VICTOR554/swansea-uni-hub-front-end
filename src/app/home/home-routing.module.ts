@@ -34,7 +34,16 @@ const routes: Routes = [
           },
           {
             path: 'booking',
-            loadChildren: () => import('./main-menu/booking/booking.module').then(m => m.BookingPageModule)
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('./main-menu/booking/booking.module').then(m => m.BookingPageModule)
+              },
+              {
+                path: 'new',
+                loadChildren: () => import('./main-menu/report/new-report/new-report.module').then(m => m.NewReportPageModule)
+              }
+            ]
           },
           {
             path: 'student-union',
