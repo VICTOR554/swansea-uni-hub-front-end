@@ -17,80 +17,77 @@
     </ion-segment-button>
   </ion-segment>
 
+  <ion-searchbar></ion-searchbar>
+
   <ion-grid class="nopadding">
     <ion-row class="nopadding">
       <ion-col class="nopadding">
-        <ion-list class="nopadding" *ngFor="let booking of loadedBooking">
-          <ion-card *ngIf=" selectSegment === 'current' &&  booking.status === 'current'">
-            <ion-grid class="nopadding">
-              <ion-row class="nopadding">
-                <ion-col>
-                  <ion-row>
-                    <ion-col>
-                      <ion-text>{{ booking.topic }}</ion-text>
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col>
-                      <ion-text>{{booking.type}}</ion-text>
-                    </ion-col>
-                  </ion-row>
+        <ion-list>
+          <ion-item-sliding *ngFor="let booking of loadedBooking" #slidingItem detail>
+            <ion-item *ngIf=" selectSegment === 'current' &&  booking.status === 'current'"
+              [routerLink]="['/', 'home', 'tabs', 'main-menu' ]" detail>
+              <ion-label>
+                <p class="title">{{ booking.topic }}</p>
 
-                  <ion-label>
+                <div class="div">
+                  <ion-icon name="text-outline" color="primary" class="icon"></ion-icon>
+                  <p class="txt"> {{ booking.type}}</p>
+                </div>
 
-                    <div class="content" class="pbs">
-                      <ion-icon name="pin-outline" color="primary" class="pt"></ion-icon>
-                      <p class="space-left">{{booking.location}}</p>
-                    </div>
-                    <div class="content" class="pbs">
-                      <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
-                      <p class="space-left">{{booking.dueDate}}</p>
-                    </div>
+                <div class="div">
+                  <ion-icon name="link" color="primary" class="pin"></ion-icon>
+                  <p class="txt">{{ booking.location }}</p>
+                </div>
 
-                  </ion-label>
+                <div class="div">
+                  <ion-icon name="calendar" color="primary" class="icon"></ion-icon>
+                  <p class="txt"> {{ booking.dueDate}}</p>
+                </div>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="danger">
+                <ion-icon name="trash" slot="top" class="icon"></ion-icon>
+                Delete
+              </ion-item-option>
+            </ion-item-options>
 
-
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card>
+          </ion-item-sliding>
         </ion-list>
 
-        <ion-list class="nopadding" *ngFor="let booking of loadedBooking">
-          <ion-card *ngIf=" selectSegment === 'past' &&  booking.status === 'past'">
-            <ion-grid class="nopadding">
-              <ion-row class="nopadding">
-                <ion-col>
-                  <ion-row>
-                    <ion-col>
-                      <ion-text>{{ booking.topic }}</ion-text>
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col>
-                      <ion-text>{{booking.type}}</ion-text>
-                    </ion-col>
-                  </ion-row>
+        <ion-list>
+          <ion-item-sliding *ngFor="let booking of loadedBooking" #slidingItem detail>
+            <ion-item *ngIf=" selectSegment === 'past' &&  booking.status === 'past'"
+              [routerLink]="['/', 'home', 'tabs', 'main-menu' ]" detail>
+              <ion-label>
+                <p class="title">{{ booking.topic }}</p>
 
-                  <ion-label>
+                <div class="div">
+                  <ion-icon name="text-outline" color="primary" class="icon"></ion-icon>
+                  <p class="txt"> {{ booking.type}}</p>
+                </div>
 
-                    <div class="content" class="pbs">
-                      <ion-icon name="pin-outline" color="primary" class="pt"></ion-icon>
-                      <p class="space-left">{{booking.location}}</p>
-                    </div>
-                    <div class="content" class="pbs">
-                      <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
-                      <p class="space-left">{{booking.dueDate}}</p>
-                    </div>
+                <div class="div">
+                  <ion-icon name="link" color="primary" class="pin"></ion-icon>
+                  <p class="txt">{{ booking.location }}</p>
+                </div>
 
-                  </ion-label>
+                <div class="div">
+                  <ion-icon name="calendar" color="primary" class="icon"></ion-icon>
+                  <p class="txt"> {{ booking.dueDate}}</p>
+                </div>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="danger">
+                <ion-icon name="trash" slot="top" class="icon"></ion-icon>
+                Delete
+              </ion-item-option>
+            </ion-item-options>
 
-
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card>
+          </ion-item-sliding>
         </ion-list>
+
 
       </ion-col>
     </ion-row>
