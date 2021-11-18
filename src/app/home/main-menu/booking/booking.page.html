@@ -32,7 +32,7 @@
         <ion-list>
           <ion-item-sliding *ngFor="let booking of loadedBooking" #slidingItem detail>
             <ion-item *ngIf=" selectSegment === 'current' &&  booking.status === 'current'"
-              [routerLink]="['/', 'home', 'tabs', 'main-menu' ]" detail>
+              [routerLink]="['/', 'home', 'tabs', 'main-menu', 'booking', 'edit', booking.id  ]" detail>
               <ion-label>
                 <p class="title">{{ booking.topic }}</p>
 
@@ -65,7 +65,7 @@
         <ion-list>
           <ion-item-sliding *ngFor="let booking of loadedBooking" #slidingItem detail>
             <ion-item *ngIf=" selectSegment === 'past' &&  booking.status === 'past'"
-              [routerLink]="['/', 'home', 'tabs', 'main-menu' ]" detail>
+              [routerLink]="['/', 'home', 'tabs', 'main-menu', 'booking', 'edit', booking.id ]" detail>
               <ion-label>
                 <p class="title">{{ booking.topic }}</p>
 

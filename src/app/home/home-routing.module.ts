@@ -41,8 +41,12 @@ const routes: Routes = [
               },
               {
                 path: 'new',
-                loadChildren: () => import('./main-menu/report/new-report/new-report.module').then(m => m.NewReportPageModule)
-              }
+                loadChildren: () => import('./main-menu/booking/new-booking/new-booking.module').then( m => m.NewBookingPageModule)
+              },
+              {
+                path: 'edit/:bookingId',
+                loadChildren: () => import('./main-menu/booking/edit-booking/edit-booking.module').then( m => m.EditBookingPageModule)
+              },
             ]
           },
           {

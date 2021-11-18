@@ -8,6 +8,7 @@ export class BookingService {
 
   private _booking: Booking[] = [
     new Booking(
+      1,
       'dissertation',
       'current',
       'online',
@@ -15,6 +16,7 @@ export class BookingService {
       '17/11/2021',
     ),
     new Booking(
+      2,
       'draft',
       'current',
       'online',
@@ -22,6 +24,7 @@ export class BookingService {
       '17/11/2021',
     ),
     new Booking(
+      3,
       'Presentation',
       'past',
       'online',
@@ -29,6 +32,7 @@ export class BookingService {
       '17/11/2021',
     ),
     new Booking(
+      4,
       'coursework',
       'past',
       'online',
