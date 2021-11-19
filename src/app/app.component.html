@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu side="start">
+  <ion-menu side="start" menuId="m1">
     <ion-header>
       <ion-toolbar>
 
@@ -26,40 +26,49 @@
 
     <ion-content>
       <ion-list>
+        <ion-menu-toggle>
         <div class="bb">
-          <ion-item lines="none" detail='false' routerLink="">
+          <ion-item lines="none" detail='false' routerLink="/home/tabs/timetable">
             <ion-icon name="business" slot="start"></ion-icon>
             <ion-label>Timetable</ion-label>
           </ion-item>
         </div>
-
+      </ion-menu-toggle>
         <div class="bb">
           <div>
             <ion-text color="grey">Options</ion-text>
           </div>
 
+          <ion-menu-toggle>
           <ion-item lines="none" detail='false' routerLink="">
             <ion-icon name="checkbox-outline" slot="start"></ion-icon>
             <ion-label>Reminder</ion-label>
             <ion-toggle color="primary"></ion-toggle>
           </ion-item>
+        </ion-menu-toggle>
         </div>
 
         <div>
+          <ion-menu-toggle>
           <ion-item lines="none" detail='false' routerLink="/home/tabs/main-menu/report">
             <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
             <ion-label>Help</ion-label>
           </ion-item>
+        </ion-menu-toggle>
 
+          <ion-menu-toggle>
           <ion-item lines="none" detail='false'>
             <ion-icon name="person-outline" slot="start"></ion-icon>
             <ion-label>Change User</ion-label>
           </ion-item>
+        </ion-menu-toggle>
 
-          <ion-item lines="none" detail='false' button>
+          <ion-menu-toggle>
+          <ion-item lines="none" detail='false' (click)="onLogout()" button>
             <ion-icon name="log-out-outline" slot="start"></ion-icon>
             <ion-label>Logout</ion-label>
           </ion-item>
+        </ion-menu-toggle>
         </div>
 
       </ion-list>
