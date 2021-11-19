@@ -1,4 +1,4 @@
-export class Map {
+export class Maps {
   constructor(
       public name: string,
       public lat: number,
