@@ -11,13 +11,13 @@ export class StudentUnionService {
       0,
       'accessibility-outline',
       'Societies',
-      '/home/tabs/main-menu/student-union/group'
+      '/home/tabs/main-menu/student-union/societies'
     ),
     new StudentUnion(
       1,
       'basketball-outline',
       'Sports',
-      '/home/tabs/main-menu/student-union/group'
+      '/home/tabs/main-menu/student-union/sports'
     ),
     new StudentUnion(
       2,
