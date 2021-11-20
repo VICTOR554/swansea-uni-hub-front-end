@@ -5,9 +5,8 @@ export class Societies {
     public title: string,
     public category: string,
     public moreInfo: MoreInfo,
-    public contact: Contact,
+    public contact: Contacts,
     public status: string,
-    public path: string,
     ) {}
 }
 
@@ -20,11 +19,11 @@ export class MoreInfo {
     ) {}
 }
 
-export class Contact {
+export class Contacts {
   constructor(
-    public email: string,
-    public linkedin: string,
-    public facebook: string,
-    public instagram: string,
+    public email?: string,
+    public linkedin?: string,
+    public facebook?: string,
+    public instagram?: string,
     ) {}
 }
