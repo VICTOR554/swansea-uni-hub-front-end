@@ -29,10 +29,6 @@ const routes: Routes = [
     loadChildren: () => import('./student-union/student-union.module').then( m => m.StudentUnionPageModule)
   },
   {
-    path: 'event',
-    loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
-  },
-  {
     path: 'report',
     loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
   },

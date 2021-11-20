@@ -51,11 +51,16 @@ const routes: Routes = [
           },
           {
             path: 'student-union',
-            loadChildren: () => import('./main-menu/student-union/student-union.module').then(m => m.StudentUnionPageModule)
-          },
-          {
-            path: 'event',
-            loadChildren: () => import('./main-menu/event/event.module').then(m => m.EventPageModule)
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('./main-menu/student-union/student-union.module').then(m => m.StudentUnionPageModule)
+              },
+              {
+                path: 'event',
+                loadChildren: () => import('./main-menu/student-union/event/event.module').then(m => m.EventPageModule)
+              },
+            ]
           },
           {
             path: 'contact',

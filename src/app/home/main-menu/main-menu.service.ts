@@ -45,18 +45,12 @@ export class MainMenuService {
     ),
     new Menu(
       6,
-      'earth-outline',
-      'Event',
-      '/home/tabs/main-menu/event'
-    ),
-    new Menu(
-      7,
       'call-outline',
       'Contact',
       '/home/tabs/main-menu/contact'
     ),
     new Menu(
-      8,
+      7,
       'alert-circle-outline',
       'Report',
       '/home/tabs/main-menu/report'
