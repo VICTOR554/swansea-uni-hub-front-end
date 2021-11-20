@@ -60,6 +60,18 @@ const routes: Routes = [
                 path: 'event',
                 loadChildren: () => import('./main-menu/student-union/event/event.module').then(m => m.EventPageModule)
               },
+              {
+                path: 'societies',
+                loadChildren: () => import('./main-menu/student-union/societies/societies.module').then( m => m.SocietiesPageModule)
+              },
+              {
+                path: 'sports',
+                loadChildren: () => import('./main-menu/student-union/sports/sports.module').then( m => m.SportsPageModule)
+              },
+              {
+                path: 'about-us',
+                loadChildren: () => import('./main-menu/student-union/about-us/about-us.module').then( m => m.AboutUsPageModule)
+              },
             ]
           },
           {
