@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/tabs/main-menu"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>student-union</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let studentUnion of loadedStudentUnion" size="6" size-sm="8" offset-sm="2" class="ion-text-center">
+        <ion-card class="fix" href="{{studentUnion.path}}">
+          <ion-card-header>
+            <ion-icon color="primary" size="large" name="{{ studentUnion.icon }}"></ion-icon>
+          </ion-card-header>
+          <ion-card-content class="card-content">{{ studentUnion.title }}</ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

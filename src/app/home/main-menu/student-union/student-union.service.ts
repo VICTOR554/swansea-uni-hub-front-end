@@ -22,7 +22,7 @@ export class StudentUnionService {
     new StudentUnion(
       2,
       'earth-outline',
-      'Event',
+      'Events',
       '/home/tabs/main-menu/student-union/event'
     ),
     new StudentUnion(
