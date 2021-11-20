@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'societies',
     loadChildren: () => import('./societies/societies.module').then( m => m.SocietiesPageModule)
   },
+  {
+    path: 'sports',
+    loadChildren: () => import('./sports/sports.module').then( m => m.SportsPageModule)
+  },
 ];
 
 @NgModule({
