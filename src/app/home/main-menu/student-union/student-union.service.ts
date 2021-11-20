@@ -34,5 +34,10 @@ export class StudentUnionService {
   ];
 
 
+  get studentUnion() {
+    // eslint-disable-next-line no-underscore-dangle
+    return [...this._studentUnion];
+  }
+
   constructor() { }
 }
