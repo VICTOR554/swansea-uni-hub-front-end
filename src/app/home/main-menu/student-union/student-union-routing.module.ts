@@ -20,6 +20,10 @@ const routes: Routes = [
     path: 'sports',
     loadChildren: () => import('./sports/sports.module').then( m => m.SportsPageModule)
   },
+  {
+    path: 'about-us',
+    loadChildren: () => import('./about-us/about-us.module').then( m => m.AboutUsPageModule)
+  },
 ];
 
 @NgModule({
