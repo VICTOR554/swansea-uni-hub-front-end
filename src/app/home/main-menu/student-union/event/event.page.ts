@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from './event.model';
+import { EventService } from './event.service';
 
 @Component({
   selector: 'app-event',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event.page.scss'],
 })
 export class EventPage implements OnInit {
+  loadedEvent: Event[];
+  selectSegment = 'current';
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
+    this.loadedEvent = this.eventService.event;
+
   }
 
 }
