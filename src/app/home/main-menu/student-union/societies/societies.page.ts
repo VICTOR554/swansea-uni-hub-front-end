@@ -9,6 +9,8 @@ import { SocietiesService } from './societies.service';
 })
 export class SocietiesPage implements OnInit {
   loadedSocieties: Societies[];
+  selectSegment = 'all';
+
 
   constructor(private societiesService: SocietiesService) { }
 
