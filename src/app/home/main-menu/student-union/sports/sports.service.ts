@@ -27,6 +27,7 @@ export class SportsService {
         '',
         ''
       ),
+      'all'
     ),
     new Sports (
       0,
@@ -45,8 +46,9 @@ export class SportsService {
         '',
         '',
         '',
-        ''
+        '',
       ),
+      'all'
     ),
     new Sports (
       0,
@@ -65,8 +67,9 @@ export class SportsService {
         '',
         '',
         '',
-        ''
+        '',
       ),
+      'joined'
     ),
     new Sports (
       0,
@@ -85,8 +88,9 @@ export class SportsService {
         '',
         '',
         '',
-        ''
+        '',
       ),
+      'joined'
     ),
   ];
 

@@ -8,6 +8,7 @@ export class Sports {
     public trainingTime: TrainingTime[],
     public events: string[],
     public contact: Contacts,
+    public status: string,
     ) {}
 }
 

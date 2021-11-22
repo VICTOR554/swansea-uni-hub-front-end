@@ -8,10 +8,28 @@
 </ion-header>
 
 <ion-content>
+  <ion-segment [(ngModel)]="selectSegment" class="segment">
+    <ion-segment-button value="all">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="joined">
+      <ion-label>Joined</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
   <ion-grid>
     <ion-row>
         <ion-col size="6" size-sm="6"  *ngFor="let sports of loadedSports">
-          <ion-card   class="ion-text-center">
+          <ion-card class="ion-text-center" *ngIf=" selectSegment === 'all'">
+            <ion-card-header>
+              <ion-icon color="primary" size="large" name="{{ sports.img }}"></ion-icon>
+            </ion-card-header>
+            <ion-card-content class="card-content">{{ sports.title }}</ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="6" size-sm="6"  *ngFor="let sports of loadedSports">
+          <ion-card class="ion-text-center" *ngIf="selectSegment === 'joined' &&  sports.status === 'joined'">
             <ion-card-header>
               <ion-icon color="primary" size="large" name="{{ sports.img }}"></ion-icon>
             </ion-card-header>
