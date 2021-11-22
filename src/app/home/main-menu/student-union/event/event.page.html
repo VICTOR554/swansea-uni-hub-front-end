@@ -5,5 +5,38 @@
 </ion-header>
 
 <ion-content>
+  <ion-segment [(ngModel)]="selectSegment" class="segment">
+    <ion-segment-button value="current">
+      <ion-label>Current</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="past">
+      <ion-label>Past</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid>
+    <ion-row>
+        <ion-col size="6" size-sm="6"  *ngFor="let event of loadedEvent">
+          <ion-card   class="ion-text-center" *ngIf=" selectSegment === 'current' &&  event.status === 'current'">
+            <ion-card-header>
+              <ion-icon color="primary" size="large" name="{{ event.img }}"></ion-icon>
+            </ion-card-header>
+            <ion-card-content class="card-content">{{ event.title }}</ion-card-content>
+          </ion-card>
+
+          <ion-card   class="ion-text-center" *ngIf=" selectSegment === 'past' &&  event.status === 'past'">
+            <ion-card-header>
+              <ion-icon color="primary" size="large" name="{{ event.img }}"></ion-icon>
+            </ion-card-header>
+            <ion-card-content class="card-content">{{ event.title }}</ion-card-content>
+          </ion-card>
+        </ion-col>
+
+
+
+
+
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
