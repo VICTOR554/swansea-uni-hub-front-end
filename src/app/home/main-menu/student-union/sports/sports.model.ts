@@ -1,4 +1,4 @@
-export class Societies {
+export class Sports {
   constructor(
     public id: number,
     public img: string,
