@@ -20,7 +20,16 @@
   <ion-grid>
     <ion-row>
         <ion-col size="6" size-sm="6"  *ngFor="let societies of loadedSocieties">
-          <ion-card   class="ion-text-center" *ngIf=" selectSegment === 'all' &&  societies.status === 'all'">
+          <ion-card   class="ion-text-center" *ngIf=" selectSegment === 'all'">
+            <ion-card-header>
+              <ion-icon color="primary" size="large" name="{{ societies.img }}"></ion-icon>
+            </ion-card-header>
+            <ion-card-content class="card-content">{{ societies.title }}</ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="6" size-sm="6"  *ngFor="let societies of loadedSocieties">
+          <ion-card   class="ion-text-center" *ngIf=" selectSegment === 'joined' &&  societies.status === 'joined'">
             <ion-card-header>
               <ion-icon color="primary" size="large" name="{{ societies.img }}"></ion-icon>
             </ion-card-header>

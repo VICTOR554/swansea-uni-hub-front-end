@@ -24,7 +24,7 @@ export class SocietiesService {
         'https://www.facebook.com/swanseauniairsoft/',
         'https://www.instagram.com/su.airsoft'
       ),
-      'joined',
+      '',
     ),
     new Societies(
       0,
@@ -42,7 +42,7 @@ export class SocietiesService {
         'https://www.facebook.com/swanseauniairsoft/',
         'https://www.instagram.com/su.airsoft'
       ),
-      'all',
+      '',
     ),
     new Societies(
       0,
@@ -60,7 +60,7 @@ export class SocietiesService {
         'https://www.facebook.com/swanseauniairsoft/',
         'https://www.instagram.com/su.airsoft'
       ),
-      'all',
+      'joined',
     ),
     new Societies(
       0,
