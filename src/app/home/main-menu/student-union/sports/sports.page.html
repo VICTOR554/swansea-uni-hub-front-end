@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/tabs/main-menu/student-union"></ion-back-button>
+    </ion-buttons>
     <ion-title>sports</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+        <ion-col size="6" size-sm="6"  *ngFor="let sports of loadedSports">
+          <ion-card   class="ion-text-center">
+            <ion-card-header>
+              <ion-icon color="primary" size="large" name="{{ sports.img }}"></ion-icon>
+            </ion-card-header>
+            <ion-card-content class="card-content">{{ sports.title }}</ion-card-content>
+          </ion-card>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

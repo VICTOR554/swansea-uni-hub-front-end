@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sports } from './sports.model';
+import { SportsService } from './sports.service';
 
 @Component({
   selector: 'app-sports',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sports.page.scss'],
 })
 export class SportsPage implements OnInit {
+  loadedSports: Sports[];
 
-  constructor() { }
+
+  constructor(private sportsService: SportsService) { }
 
   ngOnInit() {
+    this.loadedSports = this.sportsService.sports;
+
   }
 
 }
