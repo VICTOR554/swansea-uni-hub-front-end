@@ -11,6 +11,8 @@ export class SportsPage implements OnInit {
   loadedSports: Sports[];
   selectSegment = 'all';
 
+
+
   constructor(private sportsService: SportsService) { }
 
   ngOnInit() {
