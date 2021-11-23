@@ -1,9 +1,79 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/tabs/main-menu/student-union"></ion-back-button>
+    </ion-buttons>
     <ion-title>about-us</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-card id="faq">
+    <ul>
+      <li>
+        <input type="checkbox" checked>
+        <div>
+          <ion-icon name="chevron-down-outline" color="primary" class="icon"></ion-icon>
+        </div>
+        <ion-card-header class="header">
+          <ion-card-title class="title">About Us</ion-card-title>
+        </ion-card-header>
+        <ion-list *ngFor="let aboutUs of loadedAboutUs" class="content" lines="none">
+          <ion-item>
+            <ion-text>{{aboutUs.description}}</ion-text>
+          </ion-item>
+        </ion-list>
+      </li>
+
+
+      <li>
+        <input type="checkbox" checked>
+        <div>
+          <ion-icon name="chevron-down-outline" color="primary" class="icon"></ion-icon>
+        </div>
+        <ion-card-header class="header">
+          <ion-card-title class="title">Contact</ion-card-title>
+        </ion-card-header>
+        <ion-list *ngFor="let aboutUs of loadedAboutUs" class="content" lines="none">
+          <ion-item>
+            <ion-text>General enquiries {{aboutUs.contact.contact}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Media enquiries: {{aboutUs.contact.mediaContact}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text>Sales enquiries: {{aboutUs.contact.salesContact}}</ion-text>
+          </ion-item>
+        </ion-list>
+
+      </li>
+
+      <li>
+        <input type="checkbox" checked>
+        <div>
+          <ion-icon name="chevron-down-outline" color="primary" class="icon"></ion-icon>
+        </div>
+        <ion-card-header class="header">
+          <ion-card-title class="title">Location</ion-card-title>
+        </ion-card-header>
+        <ion-list *ngFor="let aboutUs of loadedAboutUs" class="content" lines="none">
+          <div *ngFor="let subaboutUs of aboutUs.location">
+            <ion-item >
+              <ion-text> {{subaboutUs.name}}</ion-text>
+            </ion-item>
+
+            <ion-item>
+              <ion-text> {{subaboutUs.address}}</ion-text>
+            </ion-item>
+          </div>
+
+
+        </ion-list>
+
+
+      </li>
+    </ul>
+  </ion-card>
 
 </ion-content>

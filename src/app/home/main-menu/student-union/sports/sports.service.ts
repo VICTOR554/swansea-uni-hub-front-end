@@ -82,6 +82,10 @@ export class SportsService {
         '4-5pm',
         'Bay Campus',
       ),
+      new TrainingTime(
+        '4-5pm',
+        'Bay Campus',
+      ),
      ],
       ['Fortnightly socials ', 'Numerous community projects'],
      new Contacts(
