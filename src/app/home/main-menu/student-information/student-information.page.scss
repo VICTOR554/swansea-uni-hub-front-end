@@ -78,7 +78,7 @@
   .header{
     padding: 0;
     .title{
-      color: #3880ff;
+      color: var(--ion-color-primary);
       font-size: 20px;
       font-weight: normal;
       line-height: 34px;
@@ -94,7 +94,7 @@
     }
   }
   h2{
-    color: #3880ff;
+    color: var(--ion-color-primary);
     font-size: 20px;
     font-weight: normal;
     line-height: 34px;
