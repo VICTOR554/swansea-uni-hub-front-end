@@ -1,8 +1,10 @@
+/* eslint-disable prefer-const */
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
+import { AuthResponseData, AuthService } from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -27,16 +29,35 @@ export class AuthPage implements OnInit {
     console.log('User Input: ' + studentId + ', ' + password);
 
     this.isLoading = true;
-    this.authService.login();
-    this.loadingCtrl.create({keyboardClose: true, message: 'logging in.....' })
-    .then(loadingEl => {
-      loadingEl.present();
-      setTimeout(() => {
-        this.isLoading = false;
-        loadingEl.dismiss();
-        this.router.navigateByUrl('/home/tabs/main-menu');
-      }, 1500);
-    } );
+    this.loadingCtrl
+      .create({ keyboardClose: true, message: 'logging in.....' })
+      .then(loadingEl => {
+        loadingEl.present();
+
+        let authObs: Observable<AuthResponseData>;
+        authObs = this.authService.token(studentId, password);
+
+        authObs.subscribe(
+          res => {
+            console.log('Token: ' + res.token);
+
+            if (res.token) {
+              this.isLoading = false;
+              this.authService.httpHeaderAuthorization(res.token);
+              this.authService.login();
+              loadingEl.dismiss();
+              this.router.navigateByUrl('/home/tabs/list-view');
+              form.reset();
+
+            } else {
+              this.isLoading = false;
+              loadingEl.dismiss();
+              console.log('Reason for no entry:' + res.text);
+              form.reset();
+            }
+          },
+        );
+      });
   }
 
 }
