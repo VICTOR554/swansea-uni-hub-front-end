@@ -14,7 +14,7 @@ export interface AuthResponseData {
 })
 
 export class AuthService {
-  private _userIsAuthenticated = false;
+  private _userIsAuthenticated = true;
 
   private _token = '';
 
