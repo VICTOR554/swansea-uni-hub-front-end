@@ -22,7 +22,6 @@ export class AuthPage implements OnInit {
     if (!form.valid) {
       return;
     }
-
     const studentId = form.value.studentId;
     const password = form.value.password;
     console.log('User Input: ' + studentId + ', ' + password);
