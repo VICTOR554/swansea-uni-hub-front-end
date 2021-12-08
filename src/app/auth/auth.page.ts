@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { AuthResponseData, AuthService } from './auth.service';
 
@@ -14,7 +14,9 @@ import { AuthResponseData, AuthService } from './auth.service';
 export class AuthPage implements OnInit {
   isLoading = false;
 
-  constructor(private authService: AuthService, private router: Router, private loadingCtrl: LoadingController,) { }
+  constructor(private authService: AuthService,
+     private router: Router, private loadingCtrl: LoadingController,
+       private alertCtrl: AlertController) { }
 
   ngOnInit() {
   }
@@ -46,18 +48,29 @@ export class AuthPage implements OnInit {
               this.authService.httpHeaderAuthorization(res.token);
               this.authService.login();
               loadingEl.dismiss();
-              this.router.navigateByUrl('/home/tabs/list-view');
+              this.router.navigateByUrl('/home/tabs/main-menu');
               form.reset();
 
             } else {
               this.isLoading = false;
               loadingEl.dismiss();
+              this.showAlert(res.text);
               console.log('Reason for no entry:' + res.text);
               form.reset();
             }
           },
         );
       });
+  }
+
+  private showAlert(message: string) {
+    this.alertCtrl
+      .create({
+        header: 'Authentication failed',
+        message,
+        buttons: ['Okay']
+      })
+      .then(alertEl => alertEl.present());
   }
 
 }
