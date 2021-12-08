@@ -115,22 +115,22 @@ export class TasksService {
 
   constructor() { }
 
-  get inProgress() {
+  get getinProgress() {
     // eslint-disable-next-line no-underscore-dangle
     return [...this._inProgress];
   }
 
-  get completed() {
+  get getCompleted() {
     // eslint-disable-next-line no-underscore-dangle
     return [...this._completed];
   }
 
-  get flagged() {
+  get getFlagged() {
     // eslint-disable-next-line no-underscore-dangle
     return [...this._flagged];
   }
 
-  get overdue() {
+  get getOverdue() {
     // eslint-disable-next-line no-underscore-dangle
     return [...this._overdue];
   }

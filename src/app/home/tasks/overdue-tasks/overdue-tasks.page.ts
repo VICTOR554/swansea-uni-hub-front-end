@@ -14,6 +14,6 @@ export class OverdueTasksPage implements OnInit {
   constructor(private taskService: TasksService) { }
 
   ngOnInit() {
-    this.loadedOverdueTasks = this.taskService.overdue;
+    this.loadedOverdueTasks = this.taskService.getOverdue;
   }
 }

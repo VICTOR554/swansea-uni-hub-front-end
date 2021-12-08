@@ -13,7 +13,7 @@ export class CompletedTasksPage implements OnInit {
   constructor(private taskService: TasksService) { }
 
   ngOnInit() {
-    this.loadedCompletedTasks = this.taskService.completed;
+    this.loadedCompletedTasks = this.taskService.getCompleted;
   }
 
 }

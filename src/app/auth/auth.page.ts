@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AuthService } from './auth.service';
@@ -16,7 +17,16 @@ export class AuthPage implements OnInit {
   ngOnInit() {
   }
 
-  onLogin() {
+  onLogin(form: NgForm) {
+    console.log(form);
+    if (!form.valid) {
+      return;
+    }
+
+    const studentId = form.value.studentId;
+    const password = form.value.password;
+    console.log('User Input: ' + studentId + ', ' + password);
+
     this.isLoading = true;
     this.authService.login();
     this.loadingCtrl.create({keyboardClose: true, message: 'logging in.....' })

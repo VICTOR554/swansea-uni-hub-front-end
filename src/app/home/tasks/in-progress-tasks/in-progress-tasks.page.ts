@@ -13,7 +13,7 @@ export class InProgressTasksPage implements OnInit {
   constructor(private taskService: TasksService) { }
 
   ngOnInit() {
-    this.loadedInProgressTasks = this.taskService.inProgress;
+    this.loadedInProgressTasks = this.taskService.getinProgress;
   }
 
 }

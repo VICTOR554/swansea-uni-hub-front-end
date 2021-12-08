@@ -19,6 +19,18 @@
 
   <ion-grid>
     <ion-row>
+      <ion-col size="10">
+        <ion-searchbar></ion-searchbar>
+      </ion-col>
+      <ion-col >
+        <ion-buttons class="icon">
+          <ion-button>
+            <ion-icon name="funnel-outline" ></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+    <ion-row>
         <ion-col size="6" size-sm="6"  *ngFor="let societies of loadedSocieties">
           <ion-card   class="ion-text-center" *ngIf=" selectSegment === 'all'">
             <ion-card-header>

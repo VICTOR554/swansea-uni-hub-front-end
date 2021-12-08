@@ -13,7 +13,7 @@ export class FlaggedTasksPage implements OnInit {
   constructor(private taskService: TasksService) { }
 
   ngOnInit() {
-    this.loadedFlaggedTasks = this.taskService.flagged;
+    this.loadedFlaggedTasks = this.taskService.getFlagged;
   }
 
 }
