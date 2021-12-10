@@ -8,10 +8,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule),
-  },
+  // {
+  //   path: 'auth',
+  //   loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule),
+  // },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
