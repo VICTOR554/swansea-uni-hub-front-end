@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Injectable } from '@angular/core';
-import { Task, Completed, Flagged, Overdue } from './tasks.model';
+import { InProgress, Completed, Flagged, Overdue } from './tasks.model';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
@@ -28,49 +28,49 @@ export class TasksService {
   }
 
   getOneTask(taskId: string) {
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/task/one/' + taskId, this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/tasks/' + taskId, this.authService.httpOptions);
   }
   getModule(moduleCode: string) {
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/module/' + moduleCode, this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/modules/' + moduleCode, this.authService.httpOptions);
   }
 
-  addTask(title: string, moduleCode: string, dueDateTime: string, body: string) {
+  addTask(title: string, moduleCode: string, dueDateTime: string, description: string) {
     const createdDateTime = +moment().format('X');
     const completed = false;
     const flagged = false;
-    const dueDateTime = +moment(dueDateTime.toString()).format('X');
-    const newTask = new Task(
+    const dueDate = +moment(dueDateTime.toString()).format('X');
+    const newTask = new InProgress(
       title,
       moduleCode,
       createdDateTime,
-      dueDateTime,
+      dueDate,
       description,
       completed,
       flagged
     );
-    return this.http.post('https://swansea-uni-hub-api.herokuapp.com/student/task/new', newTask, this.authService.httpOptions);
+    return this.http.post('https://swansea-uni-hub-api.herokuapp.com/student/tasks/new', newTask, this.authService.httpOptions);
   }
 
   updateTask(
     title: string,
     moduleCode: string,
     dueDateTime: any,
-    body: string,
+    description: string,
     taskId: string,
     completed: boolean,
     flagged: boolean
   ) {
     const createdDateTime = +moment().format('X');
     console.log(dueDateTime);
-    let dueDateTime;
+    let dueDate;
     if (typeof dueDateTime === 'string') {
       dueDateTime = +moment(dueDateTime.toString()).format('X');
     } else {
-      dueDateTime = dueDateTime;
+      dueDate = dueDateTime;
     }
 
     console.log(dueDateTime);
-    const updatedTask = new Task(
+    const updatedTask = new InProgress(
       title,
       moduleCode,
       createdDateTime,
@@ -79,10 +79,10 @@ export class TasksService {
       completed,
       flagged
     );
-    return this.http.put('https://timetable-plus.herokuapp.com/student/task/edit/' + taskId, updatedTask, this.authService.httpOptions);
+    return this.http.put('https://swansea-uni-hub-api.herokuapp.com/student/tasks/edit/' + taskId, updatedTask, this.authService.httpOptions);
   }
 
   deleteTask(taskId: string) {
-    return this.http.delete('https://timetable-plus.herokuapp.com/student/task/delete/' + taskId, this.authService.httpOptions);
+    return this.http.delete('https://swansea-uni-hub-api.herokuapp.com/student/tasks/delete/' + taskId, this.authService.httpOptions);
   }
 }

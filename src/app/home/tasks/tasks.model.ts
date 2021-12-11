@@ -1,4 +1,4 @@
-export class Task {
+export class InProgress {
   constructor(
     public title: string,
     public moduleCode: string,
@@ -7,7 +7,7 @@ export class Task {
     public description: string,
     public flagged: boolean,
     public completed: boolean,
-    public _id?: number,
+    public id?: number,
   ) { }
 }
 
@@ -20,7 +20,7 @@ export class Completed {
     public description: string,
     public flagged: boolean,
     public completed: boolean,
-    public _id?: number,
+    public id?: number,
   ) { }
 }
 
@@ -33,7 +33,7 @@ export class Overdue {
     public description: string,
     public flagged: boolean,
     public completed: boolean,
-    public _id?: number,
+    public id?: number,
   ) { }
 }
 
@@ -46,7 +46,7 @@ export class Flagged {
     public description: string,
     public flagged: boolean,
     public completed: boolean,
-    public _id?: number,
+    public id?: number,
   ) { }
 }
 
