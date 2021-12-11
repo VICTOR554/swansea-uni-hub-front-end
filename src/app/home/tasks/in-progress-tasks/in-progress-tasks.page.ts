@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { IonItemSliding, LoadingController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { InProgress, Module } from '../tasks.model';
@@ -17,7 +16,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   private taskSub: Subscription;
 
 
-  constructor(private tasksService: TasksService, private router: Router, private loadingCtrl: LoadingController) { }
+  constructor(private tasksService: TasksService, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
 
@@ -76,7 +75,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   }
 
   // Delete Task
-  onDelete(inProgressTaskId: string, slidingItem: IonItemSliding) {
+  deleteTask(inProgressTaskId: string, slidingItem: IonItemSliding) {
     slidingItem.close();
     this.loadingCtrl.create({ message: 'Deleting Task...' })
       .then(loadingEl => {

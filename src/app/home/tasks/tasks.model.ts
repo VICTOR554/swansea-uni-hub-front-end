@@ -7,7 +7,7 @@ export class InProgress {
     public description: string,
     public flagged: boolean,
     public completed: boolean,
-    public id?: number,
+    public id?: string,
   ) { }
 }
 
@@ -20,7 +20,7 @@ export class Completed {
     public description: string,
     public flagged: boolean,
     public completed: boolean,
-    public id?: number,
+    public id?: string,
   ) { }
 }
 
@@ -33,7 +33,7 @@ export class Overdue {
     public description: string,
     public flagged: boolean,
     public completed: boolean,
-    public id?: number,
+    public id?: string,
   ) { }
 }
 
@@ -46,7 +46,7 @@ export class Flagged {
     public description: string,
     public flagged: boolean,
     public completed: boolean,
-    public id?: number,
+    public id?: string,
   ) { }
 }
 
