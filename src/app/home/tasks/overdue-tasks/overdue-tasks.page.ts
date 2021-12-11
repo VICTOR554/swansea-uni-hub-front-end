@@ -11,7 +11,7 @@ import { TasksService } from '../tasks.service';
 })
 export class OverdueTasksPage implements OnInit, OnDestroy {
   noTasks = false;
-  loadedoverdue: Task[];
+  loadedOverdueTasks: Task[];
   loadedModules: Module[];
   private taskSub: Subscription;
 
@@ -28,7 +28,7 @@ export class OverdueTasksPage implements OnInit, OnDestroy {
       .then(loadingEl => {
         loadingEl.present();
         this.taskSub = this.tasksService.getOverdueTasks().subscribe((overdueTasks: any) => {
-          this.loadedoverdue = overdueTasks;
+          this.loadedOverdueTasks = overdueTasks;
           console.log(overdueTasks);
           this.loadedModules = [];
           // checks the module code and calls getmodule to get module name
@@ -86,6 +86,31 @@ export class OverdueTasksPage implements OnInit, OnDestroy {
           task.body,
           task.id,
           task.completed,
+          task.flagged).subscribe(() => {
+            this.ionViewWillEnter();
+          });
+        setTimeout(() => {
+          loadingEl.dismiss();
+          console.log('updated to flag', task);
+        }, 1000);
+      });
+  }
+
+  unflagTask(task: any, slidingItem: IonItemSliding) {
+    console.log(task);
+    slidingItem.close();
+    this.loadingCtrl.create({ message: 'Task is Unflagged...' })
+      .then(loadingEl => {
+        loadingEl.present();
+        task.is_flagged = false;
+
+        this.tasksService.updateTask(
+          task.title,
+          task.module_code,
+          task.due_date_time,
+          task.body,
+          task.id,
+          task.icompleted,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();
           });

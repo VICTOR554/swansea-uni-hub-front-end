@@ -118,6 +118,31 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
       });
   }
 
+  unflagTask(task: any, slidingItem: IonItemSliding) {
+    console.log(task);
+    slidingItem.close();
+    this.loadingCtrl.create({ message: 'Task is Unflagged...' })
+      .then(loadingEl => {
+        loadingEl.present();
+        task.is_flagged = false;
+
+        this.tasksService.updateTask(
+          task.title,
+          task.module_code,
+          task.due_date_time,
+          task.body,
+          task.id,
+          task.icompleted,
+          task.flagged).subscribe(() => {
+            this.ionViewWillEnter();
+          });
+        setTimeout(() => {
+          loadingEl.dismiss();
+          console.log('updated to flag', task);
+        }, 1000);
+      });
+  }
+
   // Complete Task
   completeTask(task: any, slidingItem: IonItemSliding) {
     slidingItem.close();

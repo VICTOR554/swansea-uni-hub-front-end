@@ -28,6 +28,10 @@
                 <ion-icon name="flag" slot="top" class="icon"></ion-icon>
                 Flag
               </ion-item-option>
+              <ion-item-option color="warning" (click)="unflagTask(inProgressTask, slidingItem)" *ngIf="inProgressTask.flagged === true">
+                <ion-icon name="flag" slot="top" class="icon"></ion-icon>
+                Flag
+              </ion-item-option>
               <ion-item-option color="danger" (click)="deleteTask(inProgressTask.id, slidingItem)">
                 <ion-icon name="trash" slot="top" class="icon"></ion-icon>
                 Delete
