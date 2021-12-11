@@ -10,7 +10,7 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./in-progress-tasks.page.scss'],
 })
 export class InProgressTasksPage implements OnInit, OnDestroy {
-  notasks = false;
+  noTasks = false;
   loadedInProgressTasks: Task[];
   loadedModules: Module[];
   private taskSub: Subscription;
@@ -45,9 +45,9 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
           });
 
           if (inProgressTask.length === 0) {
-            this.notasks = true;
+            this.noTasks = true;
           } else {
-            this.notasks = false;
+            this.noTasks = false;
           }
         });
         setTimeout(() => {

@@ -10,7 +10,7 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./flagged-tasks.page.scss'],
 })
 export class FlaggedTasksPage implements OnInit, OnDestroy {
-  notasks = false;
+  noTasks = false;
   loadedFlaggedTasks: Task[];
   loadedModules: Module[];
   private taskSub: Subscription;
@@ -42,9 +42,9 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
           });
 
           if (flaggedTask.length === 0) {
-            this.notasks = true;
+            this.noTasks = true;
           } else {
-            this.notasks = false;
+            this.noTasks = false;
           }
         });
         setTimeout(() => {

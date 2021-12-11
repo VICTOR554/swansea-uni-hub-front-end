@@ -1,43 +1,4 @@
-export class InProgress {
-  constructor(
-    public title: string,
-    public moduleCode: string,
-    public createdDateTime: number,
-    public dueDateTime: number,
-    public description: string,
-    public flagged: boolean,
-    public completed: boolean,
-    public id?: string,
-  ) { }
-}
-
-export class Completed {
-  constructor(
-    public title: string,
-    public moduleCode: string,
-    public createdDateTime: number,
-    public dueDateTime: number,
-    public description: string,
-    public flagged: boolean,
-    public completed: boolean,
-    public id?: string,
-  ) { }
-}
-
-export class Overdue {
-  constructor(
-    public title: string,
-    public moduleCode: string,
-    public createdDateTime: number,
-    public dueDateTime: number,
-    public description: string,
-    public flagged: boolean,
-    public completed: boolean,
-    public id?: string,
-  ) { }
-}
-
-export class Flagged {
+export class Task {
   constructor(
     public title: string,
     public moduleCode: string,

@@ -10,9 +10,9 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./completed-tasks.page.scss'],
 })
 export class CompletedTasksPage implements OnInit, OnDestroy {
-  notasks = false;
-  loadedcompletedtask: Task[];
-  loadedmodules: Module[];
+  noTasks = false;
+  loadedCompletedTasks: Task[];
+  loadedModules: Module[];
   private taskSub: Subscription;
 
   constructor(private tasksService: TasksService, private loadingCtrl: LoadingController) { }
@@ -26,13 +26,13 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Loading Completed Tasks...' })
       .then(loadingEl => {
         loadingEl.present();
-        this.taskSub = this.tasksService.getCompleteTasks().subscribe((completedtasks: any) => {
-          this.loadedcompletedtask = completedtasks;
-          console.log(completedtasks);
+        this.taskSub = this.tasksService.getCompleteTasks().subscribe((completedTasks: any) => {
+          this.loadedCompletedTasks = completedTasks;
+          console.log(completedTasks);
 
-          this.loadedmodules = [];
+          this.loadedModules = [];
           // checks the module code and calls getmodule to get module name
-          completedtasks.forEach(element => {
+          completedTasks.forEach(element => {
             if (element.module_code) {
               this.getModule(element.module_code);
             } else {
@@ -41,10 +41,10 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
             }
           });
 
-          if (completedtasks.length === 0) {
-            this.notasks = true;
+          if (completedTasks.length === 0) {
+            this.noTasks = true;
           } else {
-            this.notasks = false;
+            this.noTasks = false;
           }
         });
         setTimeout(() => {
@@ -56,7 +56,7 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
  // gets module name
  getModule(moduleCode) {
   if (moduleCode === 'No module') {
-    this.loadedmodules.push({
+    this.loadedModules.push({
       name: 'No module',
       code: 'No module',
       courseCode: 0
@@ -64,10 +64,10 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
 
   } else {
     this.taskSub = this.tasksService.getModule(moduleCode).subscribe((module: any) => {
-      this.loadedmodules.push(module);
+      this.loadedModules.push(module);
       console.log('Module Code', moduleCode);
       console.log('Module', module);
-      console.log('modules for the week', this.loadedmodules);
+      console.log('modules for the week', this.loadedModules);
     });
   }
 }
@@ -97,7 +97,7 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
       });
   }
 
-  incomplete(task: any, slidingItem: IonItemSliding) {
+  incompleteTask(task: any, slidingItem: IonItemSliding) {
     slidingItem.close();
     this.loadingCtrl.create({ message: 'Task is not Completed...' })
       .then(loadingEl => {
