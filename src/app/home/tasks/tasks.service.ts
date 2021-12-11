@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Injectable } from '@angular/core';
-import { InProgress, Completed, Flagged, Overdue } from './tasks.model';
+import { Task } from './tasks.model';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
@@ -39,7 +39,7 @@ export class TasksService {
     const completed = false;
     const flagged = false;
     const dueDate = +moment(dueDateTime.toString()).format('X');
-    const newTask = new InProgress(
+    const newTask = new Task(
       title,
       moduleCode,
       createdDateTime,
@@ -70,7 +70,7 @@ export class TasksService {
     }
 
     console.log(dueDateTime);
-    const updatedTask = new InProgress(
+    const updatedTask = new Task(
       title,
       moduleCode,
       createdDateTime,

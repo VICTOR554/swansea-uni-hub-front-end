@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Completed } from '../tasks.model';
+import { Task } from '../tasks.model';
 import { TasksService } from '../tasks.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./completed-tasks.page.scss'],
 })
 export class CompletedTasksPage implements OnInit {
-  loadedCompletedTasks: Completed [];
+  loadedCompletedTasks: Task [];
 
   constructor(private taskService: TasksService) { }
 

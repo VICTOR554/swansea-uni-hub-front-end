@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IonItemSliding, LoadingController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
-import { Flagged, Module } from '../tasks.model';
+import { Task, Module } from '../tasks.model';
 import { TasksService } from '../tasks.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { TasksService } from '../tasks.service';
 })
 export class FlaggedTasksPage implements OnInit, OnDestroy {
   notasks = false;
-  loadedFlaggedTasks: Flagged[];
+  loadedFlaggedTasks: Task[];
   loadedModules: Module[];
   private taskSub: Subscription;
 
