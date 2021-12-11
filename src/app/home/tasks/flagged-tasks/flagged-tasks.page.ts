@@ -20,9 +20,9 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
   ngOnInit() {
   }
   ionViewWillEnter() {
-    this.receiveFlagTasks();
+    this.receiveFlaggedTasks();
   }
-  receiveFlagTasks() {
+  receiveFlaggedTasks() {
     this.loadingCtrl.create({ message: 'Loading Flagged Tasks...' })
       .then(loadingEl => {
         loadingEl.present();
