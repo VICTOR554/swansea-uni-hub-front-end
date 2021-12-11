@@ -1,43 +1,51 @@
 export class InProgress {
   constructor(
-      public _id: number,
-      public title: string,
-      public moduleName: string,
-      public createdDate: string,
-      public dueDate: string,
-      public body: string,
-  ) {}
+    public title: string,
+    public moduleCode: string,
+    public createdDateTime: string,
+    public dueDateTime: string,
+    public description: string,
+    public flagged: string,
+    public completed: string,
+    public _id: number,
+  ) { }
 }
 
 export class Completed {
   constructor(
-      public _id: number,
-      public title: string,
-      public moduleName: string,
-      public createdDate: string,
-      public dueDate: string,
-      public body: string,
-  ) {}
+    public title: string,
+    public moduleCode: string,
+    public createdDateTime: string,
+    public dueDateTime: string,
+    public description: string,
+    public flagged: string,
+    public completed: string,
+    public _id: number,
+  ) { }
 }
 
 export class Overdue {
   constructor(
-      public _id: number,
-      public title: string,
-      public moduleName: string,
-      public createdDate: string,
-      public dueDate: string,
-      public body: string,
-  ) {}
+    public title: string,
+    public moduleCode: string,
+    public createdDateTime: string,
+    public dueDateTime: string,
+    public description: string,
+    public flagged: string,
+    public completed: string,
+    public _id: number,
+  ) { }
 }
 
 export class Flagged {
   constructor(
-      public _id: number,
-      public title: string,
-      public moduleName: string,
-      public createdDate: string,
-      public dueDate: string,
-      public body: string,
-  ) {}
+    public title: string,
+    public moduleCode: string,
+    public createdDateTime: string,
+    public dueDateTime: string,
+    public description: string,
+    public flagged: string,
+    public completed: string,
+    public _id: number,
+  ) { }
 }
