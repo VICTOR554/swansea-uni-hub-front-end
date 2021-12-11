@@ -22,21 +22,36 @@
               </ion-label>
             </ion-item>
             <ion-item-options>
-              <ion-item-option color="success">
+              <ion-item-option color="success" (click)="completeTask(flaggedTask, slidingItem)">
                 <ion-icon name="checkmark-circle-outline" slot="top" class="icon"></ion-icon>
                 Complete
               </ion-item-option>
-              <ion-item-option color="warning">
+              <ion-item-option color="warning" (click)="unflagTask(flaggedTask, slidingItem)">
                 <ion-icon name="flag" slot="top" class="icon"></ion-icon>
                 Unflag
               </ion-item-option>
-              <ion-item-option color="danger">
+              <ion-item-option color="danger" (click)="deleteTask(flaggedTask.id, slidingItem)">
                 <ion-icon name="trash" slot="top" class="icon"></ion-icon>
                 Delete
               </ion-item-option>
             </ion-item-options>
           </ion-item-sliding>
         </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="notasks === true">
+      <ion-col size-sm="12" offset-sm="3" class="nomargin">
+        <h1 class="textcenter">There are no Flagged Tasks</h1>
+        <p class="textcenter">Would you like to go to In Progress Tasks to Flag Tasks?</p>
+        <ion-row>
+          <ion-col class="nopadding textcenter " [routerLink]="['/', 'home', 'tabs', 'tasks', 'in-progress']">
+            <ion-label>In Progress</ion-label>
+            <br>
+            <ion-button>
+              <ion-icon name="albums"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -75,17 +75,17 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   }
 
   // Delete Task
-  deleteTask(inProgressTaskId: string, slidingItem: IonItemSliding) {
+  deleteTask(taskId: string, slidingItem: IonItemSliding) {
     slidingItem.close();
     this.loadingCtrl.create({ message: 'Deleting Task...' })
       .then(loadingEl => {
         loadingEl.present();
-        this.tasksService.deleteTask(inProgressTaskId).subscribe(() => {
+        this.tasksService.deleteTask(taskId).subscribe(() => {
           this.ionViewWillEnter();
         });
         setTimeout(() => {
           loadingEl.dismiss();
-          console.log('delete task', inProgressTaskId);
+          console.log('delete task', taskId);
         }, 1000);
       });
   }
@@ -106,8 +106,8 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
           task.due_date_time,
           task.body,
           task.id,
-          task.is_completed,
-          task.is_flagged).subscribe(() => {
+          task.completed,
+          task.flagged).subscribe(() => {
             this.ionViewWillEnter();
 
           });
@@ -124,15 +124,15 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Task is Completed...' })
       .then(loadingEl => {
         loadingEl.present();
-        task.is_completed = true;
+        task.completed = true;
         this.tasksService.updateTask(
           task.title,
           task.module_code,
           task.due_date_time,
           task.body,
           task.id,
-          task.is_completed,
-          task.is_flagged).subscribe(() => {
+          task.completed,
+          task.flagged).subscribe(() => {
             this.ionViewWillEnter();
           });
         setTimeout(() => {

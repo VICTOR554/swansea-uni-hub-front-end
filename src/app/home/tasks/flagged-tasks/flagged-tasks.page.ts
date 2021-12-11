@@ -84,8 +84,8 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
           task.due_date_time,
           task.body,
           task.id,
-          task.is_completed,
-          task.is_flagged).subscribe(() => {
+          task.completed,
+          task.flagged).subscribe(() => {
             this.ionViewWillEnter();
           });
         setTimeout(() => {
@@ -109,8 +109,8 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
           task.due_date_time,
           task.body,
           task.id,
-          task.is_completed,
-          task.is_flagged).subscribe(() => {
+          task.icompleted,
+          task.flagged).subscribe(() => {
             this.ionViewWillEnter();
           });
         setTimeout(() => {
@@ -120,17 +120,17 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
       });
   }
 
-  deleteTask(flagId: string, slidingItem: IonItemSliding) {
+  deleteTask(taskId: string, slidingItem: IonItemSliding) {
     slidingItem.close();
     this.loadingCtrl.create({ message: 'Deleting...' })
       .then(loadingEl => {
         loadingEl.present();
-        this.tasksService.deleteTask(flagId).subscribe(() => {
+        this.tasksService.deleteTask(taskId).subscribe(() => {
           this.ionViewWillEnter();
         });
         setTimeout(() => {
           loadingEl.dismiss();
-          console.log('delete item', flagId);
+          console.log('delete item', taskId);
         }, 1000);
       });
   }
