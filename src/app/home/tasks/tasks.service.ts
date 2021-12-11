@@ -1,141 +1,88 @@
+/* eslint-disable max-len */
 import { Injectable } from '@angular/core';
-import { InProgress, Completed, Flagged, Overdue} from './tasks.model';
+import { Task, Completed, Flagged, Overdue } from './tasks.model';
+import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import * as moment from 'moment';
+import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
-  private _inProgress: InProgress [] = [
-    new InProgress(
-      1,
-      'HCI REVIEW',
-      'HCI',
-      '9:00 am',
-      '10:00 am',
-      'Human-Computer Interaction is a disciplin',
-    ),
-    new InProgress(
-      2,
-      'Exam',
-      'Blockchain',
-      '10:00 am',
-      '11:00 am',
-      'Study',
-    ),
-    new InProgress(
-      3,
-      'Dissertation',
-      'Data visualisation',
-      '1:00 pm',
-      '4:00 pm',
-      'Study',
-    ),
-  ];
 
-  private _completed: Completed [] = [
-    new Completed(
-      1,
-      'work',
-      'HCI',
-      '9:00 am',
-      '10:00 am',
-      'finally',
-    ),
-    new Completed(
-      2,
-      'fly',
-      'HCI',
-      '9:00 am',
-      '10:00 am',
-      'Just defy gravity',
-    ),
-    new Completed(
-      3,
-      'Go to space',
-      'HCI',
-      '9:00 am',
-      '10:00 am',
-      'fight astronaut',
-    ),
-  ];
+  constructor(private authService: AuthService, private http: HttpClient) { }
 
-  private _flagged: Flagged [] = [
-    new Flagged(
-      1,
-      'Dissertation',
-      'Final Year',
-      '9:00 am',
-      '10:00 am',
-      'work on it',
-    ),
-    new Flagged(
-      2,
-      'Specification',
-      'Final Year',
-      '9:00 am',
-      '10:00 am',
-      'finiah it',
-    ),
-    new Flagged(
-      3,
-      'Safety',
-      '',
-      '9:00 am',
-      '10:00 am',
-      'your safety',
-    ),
-  ];
-
-  private _overdue: Overdue [] = [
-    new Overdue(
-      1,
-      'Covid',
-      '',
-      '9:00 am',
-      '10:00 am',
-      'shouldnt have shocked the world',
-    ),
-    new Overdue(
-      2,
-      'Lockdown',
-      'HCI',
-      '9:00 am',
-      '10:00 am',
-      'it has been going for too long',
-    ),
-    new Overdue(
-      3,
-      'Summer',
-      'Blockchain',
-      '9:00 am',
-      '10:00 am',
-      'Work',
-    ),
-  ];
-
-  constructor() { }
-
-  get getinProgress() {
-    // eslint-disable-next-line no-underscore-dangle
-    return [...this._inProgress];
+  getInProgressTasks() {
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/tasks?sort=createdDateTime&completed=false', this.authService.httpOptions);
+  }
+  getCompleteTasks() {
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/tasks?sort=createdDateTime&completed=true', this.authService.httpOptions);
+  }
+  getFlaggedTasks() {
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/task?sort=createdDateTime&flagged=true', this.authService.httpOptions);
+  }
+  getOverdueTasks() {
+    const date = moment(Date.now(), 'X');
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/?sort=createdDateTime&dueDateTime$ltdate', this.authService.httpOptions);
   }
 
-  get getCompleted() {
-    // eslint-disable-next-line no-underscore-dangle
-    return [...this._completed];
+  getOneTask(taskId: string) {
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/task/one/' + taskId, this.authService.httpOptions);
+  }
+  getModule(moduleCode: string) {
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/module/' + moduleCode, this.authService.httpOptions);
   }
 
-  get getFlagged() {
-    // eslint-disable-next-line no-underscore-dangle
-    return [...this._flagged];
+  addTask(title: string, moduleCode: string, dueDateTime: string, body: string) {
+    const createdDateTime = +moment().format('X');
+    const completed = false;
+    const flagged = false;
+    const dueDateTime = +moment(dueDateTime.toString()).format('X');
+    const newTask = new Task(
+      title,
+      moduleCode,
+      createdDateTime,
+      dueDateTime,
+      description,
+      completed,
+      flagged
+    );
+    return this.http.post('https://swansea-uni-hub-api.herokuapp.com/student/task/new', newTask, this.authService.httpOptions);
   }
 
-  get getOverdue() {
-    // eslint-disable-next-line no-underscore-dangle
-    return [...this._overdue];
+  updateTask(
+    title: string,
+    moduleCode: string,
+    dueDateTime: any,
+    body: string,
+    taskId: string,
+    completed: boolean,
+    flagged: boolean
+  ) {
+    const createdDateTime = +moment().format('X');
+    console.log(dueDateTime);
+    let dueDateTime;
+    if (typeof dueDateTime === 'string') {
+      dueDateTime = +moment(dueDateTime.toString()).format('X');
+    } else {
+      dueDateTime = dueDateTime;
+    }
+
+    console.log(dueDateTime);
+    const updatedTask = new Task(
+      title,
+      moduleCode,
+      createdDateTime,
+      dueDateTime,
+      description,
+      completed,
+      flagged
+    );
+    return this.http.put('https://timetable-plus.herokuapp.com/student/task/edit/' + taskId, updatedTask, this.authService.httpOptions);
   }
 
-
-
-
+  deleteTask(taskId: string) {
+    return this.http.delete('https://timetable-plus.herokuapp.com/student/task/delete/' + taskId, this.authService.httpOptions);
+  }
 }

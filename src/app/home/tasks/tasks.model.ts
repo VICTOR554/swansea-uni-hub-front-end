@@ -1,13 +1,13 @@
-export class InProgress {
+export class Task {
   constructor(
     public title: string,
     public moduleCode: string,
-    public createdDateTime: string,
-    public dueDateTime: string,
+    public createdDateTime: number,
+    public dueDateTime: number,
     public description: string,
-    public flagged: string,
-    public completed: string,
-    public _id: number,
+    public flagged: boolean,
+    public completed: boolean,
+    public _id?: number,
   ) { }
 }
 
@@ -15,12 +15,12 @@ export class Completed {
   constructor(
     public title: string,
     public moduleCode: string,
-    public createdDateTime: string,
-    public dueDateTime: string,
+    public createdDateTime: number,
+    public dueDateTime: number,
     public description: string,
-    public flagged: string,
-    public completed: string,
-    public _id: number,
+    public flagged: boolean,
+    public completed: boolean,
+    public _id?: number,
   ) { }
 }
 
@@ -28,12 +28,12 @@ export class Overdue {
   constructor(
     public title: string,
     public moduleCode: string,
-    public createdDateTime: string,
-    public dueDateTime: string,
+    public createdDateTime: number,
+    public dueDateTime: number,
     public description: string,
-    public flagged: string,
-    public completed: string,
-    public _id: number,
+    public flagged: boolean,
+    public completed: boolean,
+    public _id?: number,
   ) { }
 }
 
@@ -41,11 +41,19 @@ export class Flagged {
   constructor(
     public title: string,
     public moduleCode: string,
-    public createdDateTime: string,
-    public dueDateTime: string,
+    public createdDateTime: number,
+    public dueDateTime: number,
     public description: string,
-    public flagged: string,
-    public completed: string,
-    public _id: number,
+    public flagged: boolean,
+    public completed: boolean,
+    public _id?: number,
+  ) { }
+}
+
+export class Module {
+  constructor(
+    public code: string,
+      public name: string,
+      public courseCode: number,
   ) { }
 }
