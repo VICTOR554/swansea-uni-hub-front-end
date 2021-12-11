@@ -14,7 +14,7 @@ export interface AuthResponseData {
 })
 
 export class AuthService {
-  private _userIsAuthenticated = true;
+  private _userIsAuthenticated = false;
 
   private _token = '';
 
@@ -36,8 +36,9 @@ export class AuthService {
   };
 
   token(studentId: number, password: string) {
-    return this.http.post('http://localhost:6000/auth/login/student', {
-      studentId,
+    return this.http.post('https://swansea-uni-hub-api.herokuapp.com/auth/login/student', {
+      // eslint-disable-next-line id-blacklist
+      number: studentId,
       password
     });
   }
