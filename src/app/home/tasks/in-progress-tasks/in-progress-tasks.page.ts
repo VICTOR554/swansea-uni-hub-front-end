@@ -11,7 +11,7 @@ import { TasksService } from '../tasks.service';
 })
 export class InProgressTasksPage implements OnInit, OnDestroy {
   notasks = false;
-  loadedInProgressTask: InProgress[];
+  loadedInProgressTasks: InProgress[];
   loadedModules: Module[];
   private taskSub: Subscription;
 
@@ -30,7 +30,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
       .then(loadingEl => {
         loadingEl.present();
         this.taskSub = this.tasksService.getInProgressTasks().subscribe((inProgressTask: any) => {
-          this.loadedInProgressTask = inProgressTask;
+          this.loadedInProgressTasks = inProgressTask;
           console.log(inProgressTask);
 
           this.loadedModules = [];

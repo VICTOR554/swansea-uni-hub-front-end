@@ -6,18 +6,18 @@
       <ion-col>
         <ion-searchbar showCancelButton="focus"></ion-searchbar>
         <ion-list>
-          <ion-item-sliding *ngFor="let FlaggedTask of loadedFlaggedTasks" #slidingItem>
-            <ion-item [routerLink]="['/', 'home', 'tabs', 'tasks', 'edit', FlaggedTask._id]" detail>
+          <ion-item-sliding *ngFor="let flaggedTask of loadedFlaggedTasks; let i = index" #slidingItem>
+            <ion-item [routerLink]="['/', 'home', 'tabs', 'tasks', 'edit', flaggedTask.id]" detail>
               <ion-label>
-                <ion-text>{{ FlaggedTask.title }}</ion-text>
+                <ion-text>{{ flaggedTask.title }}</ion-text>
 
                 <div class="task-details" class="pb">
                   <ion-icon name="link" color="primary" class="pt"></ion-icon>
-                  <p class="space-left">{{ FlaggedTask.moduleName }}</p>
+                  <p class="space-left">{{ loadedModules[i].name }}</p>
                 </div>
                 <div class="task-details" class="pbs">
                   <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
-                  <p class="space-left"> {{ FlaggedTask.dueDate }}</p>
+                  <p class="space-left"> {{ flaggedTask.dueDateTime }}</p>
                 </div>
               </ion-label>
             </ion-item>
