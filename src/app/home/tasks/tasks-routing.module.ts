@@ -24,7 +24,17 @@ const routes: Routes = [
         path: 'flagged',
         loadChildren: () => import('./flagged-tasks/flagged-tasks.module').then( m => m.FlaggedTasksPageModule)
       },
+      {
+        path: '/home/tabs/tasks',
+        redirectTo: '/home/tabs/tasks/in-progress',
+        pathMatch: 'full'
+      }
     ]
+  },
+  {
+    path: '/home/tabs/tasks',
+    redirectTo: '/home/tabs/tasks/in-progress',
+    pathMatch: 'full'
   },
 ];
 

@@ -13,26 +13,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <ion-tabs class="pt">
-    <ion-tab-bar slot="top"  >
+    <ion-tab-bar slot="top">
 
-      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'in-progress']" >
+      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'in-progress']" [class.active-item]="selectedPath.includes('in-progress')">
          <ion-label>In Progress</ion-label>
         <ion-icon name="albums"></ion-icon>
       </ion-tab-button>
 
-      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'flagged']" >
+      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'flagged']" [class.active-item]="selectedPath.includes('flags')">
         <ion-label>Flags</ion-label>
         <ion-icon name="flag"></ion-icon>
       </ion-tab-button>
 
-      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'completed']" >
+      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'completed']" [class.active-item]="selectedPath.includes('completed-tasks')">
         <ion-label>Completed</ion-label>
         <ion-icon name="checkmark-circle-outline"></ion-icon>
       </ion-tab-button>
 
-      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'overdue']" >
+      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'overdue']" [class.active-item]="selectedPath.includes('overdue')">
         <ion-label>Overdue</ion-label>
         <ion-icon name="archive"></ion-icon>
       </ion-tab-button>
