@@ -22,12 +22,12 @@
         <ion-icon name="albums"></ion-icon>
       </ion-tab-button>
 
-      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'flagged']" [class.active-item]="selectedPath.includes('flags')">
+      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'flagged']" [class.active-item]="selectedPath.includes('flagged')">
         <ion-label>Flags</ion-label>
         <ion-icon name="flag"></ion-icon>
       </ion-tab-button>
 
-      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'completed']" [class.active-item]="selectedPath.includes('completed-tasks')">
+      <ion-tab-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'completed']" [class.active-item]="selectedPath.includes('completed')">
         <ion-label>Completed</ion-label>
         <ion-icon name="checkmark-circle-outline"></ion-icon>
       </ion-tab-button>

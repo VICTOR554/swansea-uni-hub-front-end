@@ -12,7 +12,7 @@
 
         <!-- Current Date -->
         <ion-col>
-          <ion-title class="nopadding textcenter"> 15/12/2021 </ion-title>
+          <ion-title class="nopadding textcenter"> {{ currentDay | momentPipe:'ddd DD MMM YYYY'}} </ion-title>
         </ion-col>
 
         <!-- New Timetable -->
@@ -21,22 +21,16 @@
             <ion-icon name="add-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
-
-
       </ion-row>
 
       <ion-row>
         <ion-col class="nopadding">
           <p class="nopadding textcenter">(Week - 2)</p>
-
-
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col class="">
-
-
         <ion-icon class="textcenter" name="chevron-down-outline"></ion-icon>
         </ion-col>
       </ion-row>
@@ -47,7 +41,7 @@
   </ion-toolbar>
 
   <!--To view the days of the week-->
-  <ion-toolbar class="ion-toolbar2">
+  <ion-toolbar class="ion-toolbar2" *ngIf="loadedWeek !== undefined">
     <ion-grid>
       <ion-row class="nopadding" class="marginrow">
         <ion-col class="nopadding">
@@ -67,43 +61,42 @@
         </ion-col>
       </ion-row>
 
-      <ion-row class="ion-padding-bottom">
-        <ion-icon name="arrow-back" class="ion-padding-top">
+      <ion-row class="ion-padding-bottom" *ngIf="loadedWeek !== undefined">
+        <ion-icon *ngIf="loadedWeek.number > 1" name="arrow-back" class="ion-padding-top"
+          (click)="previousWeek(loadedWeek.number)">
         </ion-icon>
 
         <ion-col class="nopadding textcenter">
-          <ion-button shape="round" class="a" class="bround">
-            1
+          <ion-button shape="round" class="a" class="bround" (click)="chosenDay(loadedWeek.dates[0])">
+            {{ loadedWeek.dates[0] | momentPipe:'DD'  }}
           </ion-button>
         </ion-col>
 
         <ion-col class="nopadding textcenter">
-          <ion-button shape="round" class="bround">
-            2
-          </ion-button>
+          <ion-button shape="round" class="bround" (click)="chosenDay(loadedWeek.dates[1])">
+            {{ loadedWeek.dates[1] | momentPipe:'DD' }}</ion-button>
         </ion-col>
 
         <ion-col class="nopadding textcenter">
-          <ion-button shape="round" class="bround">
-            3
-          </ion-button>
+          <ion-button shape="round" class="bround" (click)="chosenDay(loadedWeek.dates[2])">
+            {{ loadedWeek.dates[2] | momentPipe:' DD'  }}</ion-button>
         </ion-col>
 
-        <ion-col class="nopadding textcenter">
+        <ion-col class="nopadding textcenter" (click)="chosenDay(loadedWeek.dates[3])">
           <ion-button shape="round" class="bround">
-            4
-          </ion-button>
+            {{ loadedWeek.dates[3] | momentPipe:'DD' }}</ion-button>
         </ion-col>
 
-        <ion-col class="nopadding textcenter">
+        <ion-col class="nopadding textcenter" (click)="chosenDay(loadedWeek.dates[4])">
           <ion-button shape="round" class="bround">
-            5
-          </ion-button>
+            {{ loadedWeek.dates[4] | momentPipe:'DD' }}</ion-button>
         </ion-col>
 
-        <ion-icon class="ion-padding-top" name="arrow-forward">
+        <ion-icon *ngIf="57 > loadedWeek.number" class="ion-padding-top" name="arrow-forward"
+          (click)="nextWeek(loadedWeek.number)">
         </ion-icon>
       </ion-row>
+
     </ion-grid>
   </ion-toolbar>
 </ion-header>
@@ -114,31 +107,31 @@
     <ion-row class="nopadding">
       <ion-col class="nopadding">
         <ion-list class="nopadding">
-          <ion-card *ngFor="let activity of loadedActivity">
+          <ion-card *ngFor="let activity of loadedActivity; let i = index">
             <ion-grid class="nopadding">
               <ion-row class="nopadding">
                 <ion-col class="nopadding textcenter" size="3">
                   <ion-row>
 
                     <ion-col size="12" class="ion-padding-top">
-                      <p>{{activity.startTime }}</p>
+                      <p>{{activity.startDateTime | momentPipe:'hh:mm a'}}</p>
                     </ion-col>
 
                     <ion-col size="12" class="ion-padding-bottom">
-                      <p>{{activity.endTime }}</p>
+                      <p>{{activity.endDateTime | momentPipe:'hh:mm a' }}</p>
                     </ion-col>
 
                   </ion-row>
                 </ion-col>
 
                 <ion-col>
-                  <p>{{ activity.moduleName }}</p>
+                  <p > {{ loadedModules[i].name }}</p>
                   <p>{{activity.type}}</p>
 
                   <ion-row>
                     <ion-col class="nopadding">
                       <ion-button size="small" shape="round" class="iround"
-                        [routerLink]="[]">
+                        [routerLink]="['/', 'home', 'tabs', 'main-menu', 'maps','location', activity.location]">
                         <ion-icon name="pin"></ion-icon>
                       </ion-button>
                       <label class="label">-{{activity.location}}</label>
@@ -151,6 +144,34 @@
                       <label class="label">-{{activity.lecturerName}}</label>
                     </ion-col>
                   </ion-row>
+
+
+                  <!--This is the row viewed when there is no activity-->
+    <ion-row *ngIf="noActivity === true">
+      <ion-col size-sm="12" offset-sm="3" class="nomargin">
+        <h1 class="textcenter"> No Lectures Today</h1>
+        <p class="textcenter">Would you like to do some Tasks?</p>
+
+        <ion-row>
+          <ion-col class="nopadding textcenter">
+            <ion-label>In Progress</ion-label>
+            <br>
+            <ion-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'in-progress']">
+              <ion-icon name="albums"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+          <ion-col class="nopadding textcenter " [routerLink]="['/', 'home', 'tabs', 'tasks', 'flags']">
+            <ion-label>Flags</ion-label>
+            <br>
+            <ion-button>
+              <ion-icon name="flag"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
 
                 </ion-col>
               </ion-row>

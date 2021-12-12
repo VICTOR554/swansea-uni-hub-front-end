@@ -11,30 +11,30 @@ export class TimetableService {
   constructor(private authService: AuthService, private http: HttpClient) { }
 
   GetAllActivity(currentDay: number) {
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/activity/day/' + currentDay, this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/activities/day/' + currentDay, this.authService.httpOptions);
   }
 
   GetModule(moduleCode: string) {
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/module/' + moduleCode, this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/modules/' + moduleCode, this.authService.httpOptions);
   }
 
   GetCurrentWeek() {
     const createdDateTime = +moment().format('X');
     console.log('Created_date_time', createdDateTime);
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/week/date/' + createdDateTime, this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/weeks/date/' + createdDateTime, this.authService.httpOptions);
   }
 
   getAllWeeks() {
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/week/', this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/weeks/', this.authService.httpOptions);
   }
 
   getLocation(key) {
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/student/location/' + key, this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/locations/' + key, this.authService.httpOptions);
   }
 
   GetWeekByNumber(weekNumber: number) {
     console.log('WeekNumber', weekNumber);
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/student/week/number/' + weekNumber, this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/weeks/number/' + weekNumber, this.authService.httpOptions);
   }
 
 }

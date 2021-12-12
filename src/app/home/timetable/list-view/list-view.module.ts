@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ListViewPageRoutingModule } from './list-view-routing.module';
 
 import { ListViewPage } from './list-view.page';
+import { SharedModule } from '../../../shared/shared.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListViewPageRoutingModule
+    ListViewPageRoutingModule,
+    SharedModule
   ],
   declarations: [ListViewPage]
 })

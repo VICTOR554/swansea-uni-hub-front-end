@@ -29,7 +29,7 @@ const routes: Routes = [
             loadChildren: () => import('./main-menu/library/library.module').then(m => m.LibraryPageModule)
           },
           {
-            path: 'maps',
+            path: 'maps/:location',
             loadChildren: () => import('./main-menu/maps/maps.module').then(m => m.MapsPageModule)
           },
           {

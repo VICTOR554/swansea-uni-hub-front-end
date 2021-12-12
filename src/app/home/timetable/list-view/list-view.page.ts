@@ -10,18 +10,23 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['./list-view.page.scss'],
 })
 export class ListViewPage implements OnInit, OnDestroy {
-  curresntDay = 0;
+  currentDay = 0;
   noActivity;
   loadedActivity: Activity[];
-  loadedWeek: Week [];
+  loadedWeek: Week;
   loadedModules: Module[];
   private listSub: Subscription;
+  selectedPath = '/home/tabs/timetable/list-view';
+  counter = 0;
 
 
-  constructor(private timetableService: TimetableService,  private loadingCtrl: LoadingController,) { }
+  constructor(private timetableService: TimetableService,  private loadingCtrl: LoadingController)
+  {}
 
   ngOnInit() {
+    this.ionViewWillEnter();
   }
+
   ionViewWillEnter() {
     this.receiveCurrentWeek();
   }
@@ -32,8 +37,8 @@ export class ListViewPage implements OnInit, OnDestroy {
       console.log('Week', this.loadedWeek);
 
       this.receiveActivity(week.dates[0]);
-      this.curresntDay = week.dates[0];
-      console.log('First day of the week', this.curresntDay);
+      this.currentDay = 1639440000;
+      console.log('First day of the week', this.currentDay);
     });
   }
 
@@ -43,7 +48,8 @@ export class ListViewPage implements OnInit, OnDestroy {
       console.log('specific Week', this.loadedWeek);
 
       this.receiveActivity(week.dates[0]);
-      this.curresntDay = week.dates[0];
+      console.log('Recieve Activity in recieve week');
+      this.currentDay = week.dates[0];
     });
   }
 
@@ -53,7 +59,7 @@ export class ListViewPage implements OnInit, OnDestroy {
         loadingEl.present();
         this.listSub = this.timetableService.GetAllActivity(currentDay).subscribe((activities: any) => {
           this.loadedActivity = activities;
-          console.log('day', currentDay);
+          console.log('Current day', currentDay);
           console.log('Activity', activities);
           if (activities.length === 0) {
             this.noActivity = true;
@@ -92,7 +98,7 @@ export class ListViewPage implements OnInit, OnDestroy {
 
   chosenDay(chosenDay) {
     this.receiveActivity(chosenDay);
-    this.curresntDay = chosenDay;
+    this.currentDay = chosenDay;
   }
 
   // used to clear subscription to avoid memory leaks
