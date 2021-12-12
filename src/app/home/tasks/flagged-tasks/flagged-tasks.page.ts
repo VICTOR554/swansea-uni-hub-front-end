@@ -34,10 +34,10 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
           // checks the module code and calls getmodule to get module name
           flaggedTask.forEach(element => {
             if (element.moduleCode) {
-              this.getModule(element.moduleCode);
+              this.onGetModule(element.moduleCode);
             } else {
 
-              this.getModule('No module');
+              this.onGetModule('No module');
             }
           });
 
@@ -54,7 +54,7 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
   }
 
   // gets module name
-  getModule(moduleCode) {
+  onGetModule(moduleCode) {
     if (moduleCode === 'No module') {
       this.loadedModules.push({
         name: 'No module',
@@ -120,7 +120,7 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
       });
   }
 
-  deleteTask(taskId: string, slidingItem: IonItemSliding) {
+  onDeleteTask(taskId: string, slidingItem: IonItemSliding) {
     slidingItem.close();
     this.loadingCtrl.create({ message: 'Deleting...' })
       .then(loadingEl => {

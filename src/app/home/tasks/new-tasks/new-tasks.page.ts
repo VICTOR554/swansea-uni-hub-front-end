@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TasksService } from '../tasks.service';
+import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-new-tasks',
   templateUrl: './new-tasks.page.html',
@@ -9,7 +12,7 @@ export class NewTasksPage implements OnInit {
   form: FormGroup;
   currentDate;
 
-  constructor() { }
+  constructor(private tasksService: TasksService, private router: Router, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
     this.currentDate = new Date().toISOString();
@@ -25,13 +28,37 @@ export class NewTasksPage implements OnInit {
         updateOn: 'blur',
         validators: [Validators.required],
       }),
-      body: new FormControl(null, {
+      descripton: new FormControl(null, {
         updateOn: 'blur',
         validators: [Validators.required, Validators.maxLength(1800)],
       }),
     });
   }
+
   onCreateTask() {
     console.log(this.form);
+    if (!this.form.valid) {
+
+      return;
+    }
+    this.loadingCtrl.create({
+      message: 'Creating Task'
+    }).then(loadingEl => {
+      loadingEl.present();
+      this.tasksService.createTask(
+        this.form.value.title,
+        this.form.value.moduleCode,
+        this.form.value.dueDateTime,
+        this.form.value.description,
+      ).subscribe((res) => {
+        setTimeout(() => {
+          loadingEl.dismiss();
+          console.log(res);
+          this.form.reset();
+          this.router.navigate(['home/tabs/tasks']);
+        }, 1000);
+      });
+    });
   }
+
 }

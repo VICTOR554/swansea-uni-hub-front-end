@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import { Injectable } from '@angular/core';
 import { Task } from './tasks.model';
-import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
 import { AuthService } from '../../auth/auth.service';
@@ -34,7 +33,7 @@ export class TasksService {
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/modules/' + moduleCode, this.authService.httpOptions);
   }
 
-  addTask(title: string, moduleCode: string, dueDateTime: string, description: string) {
+  createTask(title: string, moduleCode: string, dueDateTime: string, description: string) {
     const createdDateTime = +moment().format('X');
     const completed = false;
     const flagged = false;

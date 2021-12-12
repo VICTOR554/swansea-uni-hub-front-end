@@ -33,14 +33,15 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
           this.loadedInProgressTasks = inProgressTask;
           console.log(inProgressTask);
 
+
           this.loadedModules = [];
           // checks the module code and calls getmodule to get module name
           inProgressTask.forEach(element => {
             if (element.moduleCode) {
-              this.getModule(element.moduleCode);
+              this.onGetModule(element.moduleCode);
             } else {
 
-              this.getModule('No module');
+              this.onGetModule('No module');
             }
           });
 
@@ -57,7 +58,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   }
 
   // gets module name
-  getModule(moduleCode) {
+  onGetModule(moduleCode) {
     if (moduleCode === 'No module') {
       this.loadedModules.push({
         name: 'No module',
@@ -75,7 +76,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   }
 
   // Delete Task
-  deleteTask(taskId: string, slidingItem: IonItemSliding) {
+  onDeleteTask(taskId: string, slidingItem: IonItemSliding) {
     slidingItem.close();
     this.loadingCtrl.create({ message: 'Deleting Task...' })
       .then(loadingEl => {
