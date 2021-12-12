@@ -1,11 +1,11 @@
 export class Activity {
   constructor(
-    public id: number,
-    public moduleName: string,
-    public type: string,
-    public startTime: string,
-    public endTime: string,
+    public moduleCode: string,
     public lecturerName: string,
+    public startDateTime: string,
+    public endDateTime: string,
     public location: string,
+    public type: string,
+    public id?: string,
   ) { }
 }
