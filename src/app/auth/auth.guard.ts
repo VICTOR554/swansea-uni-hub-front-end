@@ -23,7 +23,7 @@ export class AuthGuard implements CanLoad {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):
     Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('Authentication -' + this.authService.userIsAuthenticated);
+    console.log('Authentication ' + this.authService.userIsAuthenticated);
     if (this.authService.userIsAuthenticated === false) {
       this.router.navigateByUrl('/auth');
     }

@@ -38,37 +38,37 @@ export class AuthPage implements OnInit {
         loadingEl.present();
 
         //temporary
-        this.authService.login();
-        setTimeout(() => {
-          this.isLoading = false;
-          loadingEl.dismiss();
-          this.router.navigateByUrl('/home/tabs/main-menu');
-        }, 1500);
+        // this.authService.login();
+        // setTimeout(() => {
+        //   this.isLoading = false;
+        //   loadingEl.dismiss();
+        //   this.router.navigateByUrl('/home/tabs/main-menu');
+        // }, 1500);
 
-        // let authObs: Observable<AuthResponseData>;
-        // authObs = this.authService.token(studentId, password);
+        let authObs: Observable<AuthResponseData>;
+        authObs = this.authService.token(studentId, password);
 
-        // authObs.subscribe(
-        //   res => {
-        //     console.log('Token: ' + res.token);
+        authObs.subscribe(
+          res => {
+            console.log('Token: ' + res.token);
 
-        //     if (res.token) {
-        //       this.isLoading = false;
-        //       this.authService.httpHeaderAuthorization(res.token);
-        //       this.authService.login();
-        //       loadingEl.dismiss();
-        //       this.router.navigateByUrl('/home/tabs/main-menu');
-        //       form.reset();
+            if (res.token) {
+              this.isLoading = false;
+              this.authService.httpHeaderAuthorization(res.token);
+              this.authService.login();
+              loadingEl.dismiss();
+              this.router.navigateByUrl('/home/tabs/main-menu');
+              form.reset();
 
-        //     } else {
-        //       this.isLoading = false;
-        //       loadingEl.dismiss();
-        //       this.showAlert(res.text);
-        //       console.log('Reason for no entry:' + res.text);
-        //       form.reset();
-        //     }
-        //   },
-        // );
+            } else {
+              this.isLoading = false;
+              loadingEl.dismiss();
+              this.showAlert(res.text);
+              console.log('Reason for no entry:' + res.text);
+              form.reset();
+            }
+          },
+        );
       });
   }
 

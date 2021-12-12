@@ -48,8 +48,8 @@ export class NewTasksPage implements OnInit {
       this.tasksService.createTask(
         this.form.value.title,
         this.form.value.moduleCode,
-        this.form.value.dueDateTime,
         this.form.value.description,
+        this.form.value.dueDateTime,
       ).subscribe((res) => {
         setTimeout(() => {
           loadingEl.dismiss();

@@ -13,17 +13,18 @@ export class TasksService {
   constructor(private authService: AuthService, private http: HttpClient) { }
 
   getInProgressTasks() {
+    console.log(this.authService.token)
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/tasks?sort=createdDateTime&completed=false', this.authService.httpOptions);
   }
   getCompleteTasks() {
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/tasks?sort=createdDateTime&completed=true', this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/tasks?&sort=createdDateTime&completed=true', this.authService.httpOptions);
   }
   getFlaggedTasks() {
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/task?sort=createdDateTime&flagged=true', this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/tasks?sort=createdDateTime&flagged=true', this.authService.httpOptions);
   }
   getOverdueTasks() {
     const date = moment(Date.now(), 'X');
-    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/?sort=createdDateTime&dueDateTime$ltdate', this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/tasks?sort=createdDateTime&dueDateTime$ltdate', this.authService.httpOptions);
   }
 
   getOneTask(taskId: string) {
@@ -33,7 +34,7 @@ export class TasksService {
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/modules/' + moduleCode, this.authService.httpOptions);
   }
 
-  createTask(title: string, moduleCode: string, dueDateTime: string, description: string) {
+  createTask(title: string, moduleCode: string, description: string, dueDateTime: string) {
     const createdDateTime = +moment().format('X');
     const completed = false;
     const flagged = false;
@@ -42,12 +43,12 @@ export class TasksService {
       title,
       moduleCode,
       createdDateTime,
-      dueDate,
       description,
+      dueDate,
       completed,
       flagged
     );
-    return this.http.post('https://swansea-uni-hub-api.herokuapp.com/student/tasks/new', newTask, this.authService.httpOptions);
+    return this.http.post('https://swansea-uni-hub-api.herokuapp.com/student/tasks/new/', newTask, this.authService.httpOptions);
   }
 
   updateTask(
@@ -73,8 +74,8 @@ export class TasksService {
       title,
       moduleCode,
       createdDateTime,
-      dueDateTime,
       description,
+      dueDateTime,
       completed,
       flagged
     );

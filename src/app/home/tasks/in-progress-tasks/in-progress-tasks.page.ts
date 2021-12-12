@@ -19,7 +19,6 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   constructor(private tasksService: TasksService, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
-
   }
   ionViewWillEnter() {
     this.receiveInProgressTasks();
@@ -31,7 +30,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
         loadingEl.present();
         this.taskSub = this.tasksService.getInProgressTasks().subscribe((inProgressTask: any) => {
           this.loadedInProgressTasks = inProgressTask;
-          console.log(inProgressTask);
+          console.log("In progress task", this.loadedInProgressTasks);
 
 
           this.loadedModules = [];
@@ -44,6 +43,8 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
               this.onGetModule('No module');
             }
           });
+          console.log("loadedModules", this.loadedModules);
+
 
           if (inProgressTask.length === 0) {
             this.noTasks = true;

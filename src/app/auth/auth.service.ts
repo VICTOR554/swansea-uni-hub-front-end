@@ -45,7 +45,7 @@ export class AuthService {
 
   httpHeaderAuthorization(token) {
     console.log(token);
-    this._token = token;
+    this._token = "Bearer " + token;
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this._token);
   }
 
