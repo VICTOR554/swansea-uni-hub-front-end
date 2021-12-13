@@ -34,7 +34,8 @@ export class EditTasksPage implements OnInit, OnDestroy {
       }
       this.currentDate = new Date().toISOString();
       this.taskSub = this.tasksService.getOneTask(paramMap.get('taskId')).subscribe((alltasks: any) => {
-        this.loadedalltask = alltasks;
+        this.loadedalltask = alltasks.data;
+        console.log('task', this.loadedalltask);
         // load detail of item in form by removing null and calling the title and description
         this.form = new FormGroup({
             title: new FormControl(this.loadedalltask.title, {
@@ -77,10 +78,10 @@ export class EditTasksPage implements OnInit, OnDestroy {
         this.tasksService.updateTask
             (
                 this.form.value.title,
-                this.form.value.module_code,
-                this.form.value.due_date_time,
-                this.form.value.body,
-                this.loadedalltask.id,
+                this.form.value.moduleCode,
+                this.form.value.dueDateTime,
+                this.form.value.description,
+                this.loadedalltask._id,
                 this.completed,
                 this.flagged
             )

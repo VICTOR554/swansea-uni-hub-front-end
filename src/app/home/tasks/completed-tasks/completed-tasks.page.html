@@ -5,7 +5,7 @@
         <ion-searchbar showCancelButton="focus"></ion-searchbar>
         <ion-list>
           <ion-item-sliding *ngFor="let completedTask of loadedCompletedTasks; let i = index" #slidingItem>
-            <ion-item [routerLink]="['/', 'home', 'tabs', 'tasks', 'edit', completedTask.id]" detail>
+            <ion-item [routerLink]="['/', 'home', 'tabs', 'tasks', 'edit', completedTask._id]" detail>
               <ion-label>
                 <ion-text>{{ completedTask.title }}</ion-text>
 
@@ -28,7 +28,7 @@
                 <ion-icon name="flag" slot="top" class="icon"></ion-icon>
                 Flag
               </ion-item-option>
-              <ion-item-option color="danger" (click)="onDeleteTask(completedTask.id, slidingItem)">
+              <ion-item-option color="danger" (click)="onDeleteTask(completedTask._id, slidingItem)">
                 <ion-icon name="trash" slot="top" class="icon"></ion-icon>
                 Delete
               </ion-item-option>

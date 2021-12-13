@@ -32,7 +32,7 @@ export class ListViewPage implements OnInit, OnDestroy {
   }
 
   receiveCurrentWeek() {
-    this.listSub = this.timetableService.GetCurrentWeek().subscribe((week: any) => {
+    this.listSub = this.timetableService.getCurrentWeek().subscribe((week: any) => {
       this.loadedWeek = week;
       console.log('Week', this.loadedWeek);
 
@@ -43,7 +43,7 @@ export class ListViewPage implements OnInit, OnDestroy {
   }
 
   receiveWeekByNumber(weekNumber) {
-    this.listSub = this.timetableService.GetWeekByNumber(weekNumber).subscribe((week: any) => {
+    this.listSub = this.timetableService.getWeekByNumber(weekNumber).subscribe((week: any) => {
       this.loadedWeek = week;
       console.log('specific Week', this.loadedWeek);
 
@@ -57,7 +57,7 @@ export class ListViewPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Loading Lecture...' })
       .then(loadingEl => {
         loadingEl.present();
-        this.listSub = this.timetableService.GetAllActivity(currentDay).subscribe((activities: any) => {
+        this.listSub = this.timetableService.getAllActivity(currentDay).subscribe((activities: any) => {
           this.loadedActivity = activities;
           console.log('Current day', currentDay);
           console.log('Activity', activities);
@@ -80,10 +80,10 @@ export class ListViewPage implements OnInit, OnDestroy {
 
   // gets module name
   receiveModule(moduleCode) {
-    this.listSub = this.timetableService.GetModule(moduleCode).subscribe((module: any) => {
-      this.loadedModules.push(module);
+    this.listSub = this.timetableService.getModule(moduleCode).subscribe((module: any) => {
+      this.loadedModules.push(module.data);
       console.log('Module Code', moduleCode);
-      console.log('Module', module);
+      console.log('Module', module.data);
       console.log('modules for the actvities in a day', this.loadedModules);
     });
   }

@@ -10,15 +10,15 @@ export class TimetableService {
 
   constructor(private authService: AuthService, private http: HttpClient) { }
 
-  GetAllActivity(currentDay: number) {
+  getAllActivity(currentDay: number) {
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/activities/day/' + currentDay, this.authService.httpOptions);
   }
 
-  GetModule(moduleCode: string) {
+  getModule(moduleCode: string) {
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/modules/' + moduleCode, this.authService.httpOptions);
   }
 
-  GetCurrentWeek() {
+  getCurrentWeek() {
     const createdDateTime = +moment().format('X');
     console.log('Created_date_time', createdDateTime);
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/weeks/date/' + createdDateTime, this.authService.httpOptions);
@@ -32,7 +32,7 @@ export class TimetableService {
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/locations/' + key, this.authService.httpOptions);
   }
 
-  GetWeekByNumber(weekNumber: number) {
+  getWeekByNumber(weekNumber: number) {
     console.log('WeekNumber', weekNumber);
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/weeks/number/' + weekNumber, this.authService.httpOptions);
   }

@@ -19,6 +19,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   constructor(private tasksService: TasksService, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
+    this.receiveInProgressTasks();
   }
   ionViewWillEnter() {
     this.receiveInProgressTasks();
@@ -28,25 +29,25 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Loading In Progress Tasks...' })
       .then(loadingEl => {
         loadingEl.present();
-        this.taskSub = this.tasksService.getInProgressTasks().subscribe((inProgressTask: any) => {
-          this.loadedInProgressTasks = inProgressTask;
-          console.log("In progress task", this.loadedInProgressTasks);
+        this.taskSub = this.tasksService.getInProgressTasks().subscribe((inProgressTasks: any) => {
+          this.loadedInProgressTasks = inProgressTasks.data;
+          console.log("In progress task", inProgressTasks.data);
+
+
 
 
           this.loadedModules = [];
+
           // checks the module code and calls getmodule to get module name
-          inProgressTask.forEach(element => {
+          inProgressTasks.data.forEach(element => {
             if (element.moduleCode) {
               this.onGetModule(element.moduleCode);
             } else {
-
               this.onGetModule('No module');
             }
           });
-          console.log("loadedModules", this.loadedModules);
 
-
-          if (inProgressTask.length === 0) {
+          if (inProgressTasks.data.length === 0) {
             this.noTasks = true;
           } else {
             this.noTasks = false;
@@ -60,15 +61,15 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
 
   // gets module name
   onGetModule(moduleCode) {
-    if (moduleCode === 'No module') {
+    if (moduleCode === 'No data') {
       this.loadedModules.push({
-        name: 'No module',
-        code: 'No module',
+        name: 'No data',
+        code: 'No data',
         courseCode: 0
       });
     } else {
       this.taskSub = this.tasksService.getModule(moduleCode).subscribe((module: any) => {
-        this.loadedModules.push(module);
+        this.loadedModules.push(module.data);
         console.log('Module Code', moduleCode);
         console.log('Module', module);
         console.log('modules for the week', this.loadedModules);
@@ -82,6 +83,8 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Deleting Task...' })
       .then(loadingEl => {
         loadingEl.present();
+        console.log('task id', taskId);
+
         this.tasksService.deleteTask(taskId).subscribe(() => {
           this.ionViewWillEnter();
         });
@@ -93,21 +96,21 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   }
 
   // Flag Task
-  flagTask(task: any, slidingItem: IonItemSliding) {
+  flaggedTask(task: any, slidingItem: IonItemSliding) {
     console.log(task);
     slidingItem.close();
     this.loadingCtrl.create({ message: 'Task is Flagged...' })
       .then(loadingEl => {
         loadingEl.present();
 
-        task.is_flagged = true;
+        task.flagged = true;
 
         this.tasksService.updateTask(
           task.title,
-          task.module_code,
-          task.due_date_time,
-          task.body,
-          task.id,
+          task.moduleCode,
+          task.dueDateTime,
+          task.description,
+          task._id,
           task.completed,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();
@@ -126,15 +129,15 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Task is Unflagged...' })
       .then(loadingEl => {
         loadingEl.present();
-        task.is_flagged = false;
+        task.flagged = false;
 
         this.tasksService.updateTask(
           task.title,
-          task.module_code,
-          task.due_date_time,
-          task.body,
-          task.id,
-          task.icompleted,
+          task.moduleCode,
+          task.dueDateTime,
+          task.description,
+          task._id,
+          task.completed,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();
           });
@@ -157,7 +160,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
           task.module_code,
           task.due_date_time,
           task.body,
-          task.id,
+          task._id,
           task.completed,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();

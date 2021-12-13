@@ -24,7 +24,7 @@ export class NewTasksPage implements OnInit {
       moduleCode: new FormControl(null, {
         updateOn: 'blur',
       }),
-      dueDate: new FormControl(null, {
+      dueDateTime: new FormControl(null, {
         updateOn: 'blur',
         validators: [Validators.required],
       }),

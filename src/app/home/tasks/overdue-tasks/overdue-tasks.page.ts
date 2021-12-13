@@ -28,11 +28,11 @@ export class OverdueTasksPage implements OnInit, OnDestroy {
       .then(loadingEl => {
         loadingEl.present();
         this.taskSub = this.tasksService.getOverdueTasks().subscribe((overdueTasks: any) => {
-          this.loadedOverdueTasks = overdueTasks;
+          this.loadedOverdueTasks = overdueTasks.data;
           console.log(overdueTasks);
           this.loadedModules = [];
           // checks the module code and calls getmodule to get module name
-          overdueTasks.forEach(element => {
+          overdueTasks.data.forEach(element => {
             if (element.module_code) {
               this.onGetModule(element.module_code);
             } else {
@@ -40,7 +40,7 @@ export class OverdueTasksPage implements OnInit, OnDestroy {
               this.onGetModule('No module');
             }
           });
-          if (overdueTasks.length === 0) {
+          if (overdueTasks.data.length === 0) {
             this.noTasks = true;
           } else {
             this.noTasks = false;
@@ -63,9 +63,9 @@ export class OverdueTasksPage implements OnInit, OnDestroy {
 
     } else {
       this.taskSub = this.tasksService.getModule(moduleCode).subscribe((module: any) => {
-        this.loadedModules.push(module);
+        this.loadedModules.push(module.data);
         console.log('Module Code', moduleCode);
-        console.log('Module', module);
+        console.log('Module', module.data);
         console.log('modules for the week', this.loadedModules);
       });
     }
@@ -77,14 +77,14 @@ export class OverdueTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Task is Flagged...' })
       .then(loadingEl => {
         loadingEl.present();
-        task.is_flagged = true;
+        task.flagged = true;
 
         this.tasksService.updateTask(
           task.title,
-          task.module_code,
-          task.due_date_time,
-          task.body,
-          task.id,
+          task.moduleCode,
+          task.dueDateTime,
+          task.description,
+          task._id,
           task.completed,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();
@@ -102,15 +102,15 @@ export class OverdueTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Task is Unflagged...' })
       .then(loadingEl => {
         loadingEl.present();
-        task.is_flagged = false;
+        task.flagged = false;
 
         this.tasksService.updateTask(
           task.title,
           task.module_code,
           task.due_date_time,
           task.body,
-          task.id,
-          task.icompleted,
+          task._id,
+          task.completed,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();
           });
@@ -126,13 +126,13 @@ export class OverdueTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Task is not Completed...' })
       .then(loadingEl => {
         loadingEl.present();
-        task.is_completed = false;
+        task.completed = false;
         this.tasksService.updateTask(
           task.title,
           task.module_code,
           task.due_date_time,
           task.body,
-          task.id,
+          task._id,
           task.completed,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();

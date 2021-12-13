@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { InProgressTasksPageRoutingModule } from './in-progress-tasks-routing.module';
 
 import { InProgressTasksPage } from './in-progress-tasks.page';
+import { SharedModule } from '../../../shared/shared.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InProgressTasksPageRoutingModule
+    InProgressTasksPageRoutingModule,
+    SharedModule
+
   ],
   declarations: [InProgressTasksPage]
 })

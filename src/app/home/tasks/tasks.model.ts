@@ -8,7 +8,7 @@ export class Task {
     public dueDateTime: number,
     public flagged: boolean,
     public completed: boolean,
-    public id?: string,
+    public _id?: string,
   ) { }
 }
 

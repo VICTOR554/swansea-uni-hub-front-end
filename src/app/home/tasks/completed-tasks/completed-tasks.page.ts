@@ -27,12 +27,12 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
       .then(loadingEl => {
         loadingEl.present();
         this.taskSub = this.tasksService.getCompleteTasks().subscribe((completedTasks: any) => {
-          this.loadedCompletedTasks = completedTasks;
-          console.log(completedTasks);
+          this.loadedCompletedTasks = completedTasks.data;
+          console.log(completedTasks.data);
 
           this.loadedModules = [];
           // checks the module code and calls getmodule to get module name
-          completedTasks.forEach(element => {
+          completedTasks.data.forEach(element => {
             if (element.module_code) {
               this.onGetModule(element.module_code);
             } else {
@@ -41,7 +41,7 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
             }
           });
 
-          if (completedTasks.length === 0) {
+          if (completedTasks.data.length === 0) {
             this.noTasks = true;
           } else {
             this.noTasks = false;
@@ -64,9 +64,9 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
 
   } else {
     this.taskSub = this.tasksService.getModule(moduleCode).subscribe((module: any) => {
-      this.loadedModules.push(module);
+      this.loadedModules.push(module.data);
       console.log('Module Code', moduleCode);
-      console.log('Module', module);
+      console.log('Module', module.data);
       console.log('modules for the week', this.loadedModules);
     });
   }
@@ -78,14 +78,14 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Task is Flagged...' })
       .then(loadingEl => {
         loadingEl.present();
-        task.is_flagged = true;
+        task.flagged = true;
 
         this.tasksService.updateTask(
           task.title,
-          task.module_code,
-          task.due_date_time,
-          task.body,
-          task.id,
+          task.moduleCode,
+          task.dueDateTime,
+          task.description,
+          task._id,
           task.completed,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();
@@ -102,13 +102,13 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
     this.loadingCtrl.create({ message: 'Task is not Completed...' })
       .then(loadingEl => {
         loadingEl.present();
-        task.is_completed = false;
+        task.completed = false;
         this.tasksService.updateTask(
           task.title,
-          task.module_code,
-          task.due_date_time,
-          task.body,
-          task.id,
+          task.moduleCode,
+          task.dueDateTime,
+          task.description,
+          task._id,
           task.completed,
           task.flagged).subscribe(() => {
             this.ionViewWillEnter();
