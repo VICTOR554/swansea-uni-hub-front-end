@@ -1,49 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CourseworkDeadline } from './coursework-deadline.model';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseworkDeadlineService {
-  private _courseworkDeadline: CourseworkDeadline[] = [
-    new CourseworkDeadline(
-      202050,
-      'coursework 1',
-      'david',
-      '20/08/2021',
-      'current',
-      10
-    ),
-    new CourseworkDeadline(
-      202050,
-      'coursework 2',
-      'david',
-      '20/10/2021',
-      'current',
-      10
-    ),
-    new CourseworkDeadline(
-      202020,
-      'coursework 1',
-      'david',
-      '20/08/2021',
-      'past',
-      10
-    ),
-    new CourseworkDeadline(
-      202020,
-      'coursework 2',
-      'david',
-      '20/10/2021',
-      'past',
-      10
-    )
-  ];
+  constructor(private authService: AuthService, private http: HttpClient) { }
 
-  get courseworkDeadline() {
-    // eslint-disable-next-line no-underscore-dangle
-    return [...this._courseworkDeadline];
+  getCurrentCoursework() {
+    console.log(this.authService.httpOptions)
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/courseworks/current' + this.authService.httpOptions);
   }
 
-  constructor() { }
+  getPastCoursework() {
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/courseworks/past' + this.authService.httpOptions);
+  }
 }

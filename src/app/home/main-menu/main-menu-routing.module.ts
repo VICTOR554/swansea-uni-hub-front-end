@@ -6,7 +6,7 @@ import { MainMenuPage } from './main-menu.page';
 const routes: Routes = [
   {
     path: '',
-    component: MainMenuPage
+    component: MainMenuPage,
   },
   {
     path: 'student-information',
@@ -22,15 +22,59 @@ const routes: Routes = [
   },
   {
     path: 'booking',
-    loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)
+    children:
+    [
+      {
+        path: '',
+        loadChildren: () => import('./booking/booking.module').then(m => m.BookingPageModule)
+      },
+      {
+        path: 'new',
+        loadChildren: () => import('./booking/new-booking/new-booking.module').then(m => m.NewBookingPageModule)
+      },
+      {
+        path: 'edit/:bookingId',
+        loadChildren: () => import('./booking/edit-booking/edit-booking.module').then(m => m.EditBookingPageModule)
+      },
+    ]
   },
   {
     path: 'student-union',
-    loadChildren: () => import('./student-union/student-union.module').then( m => m.StudentUnionPageModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./student-union/student-union.module').then(m => m.StudentUnionPageModule)
+      },
+      {
+        path: 'event',
+        loadChildren: () => import('./student-union/event/event.module').then(m => m.EventPageModule)
+      },
+      {
+        path: 'societies',
+        loadChildren: () => import('./student-union/societies/societies.module').then(m => m.SocietiesPageModule)
+      },
+      {
+        path: 'sports',
+        loadChildren: () => import('./student-union/sports/sports.module').then(m => m.SportsPageModule)
+      },
+      {
+        path: 'about-us',
+        loadChildren: () => import('./student-union/about-us/about-us.module').then(m => m.AboutUsPageModule)
+      },
+    ]
   },
   {
     path: 'report',
-    loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./report/report.module').then(m => m.ReportPageModule)
+      },
+      {
+        path: 'new',
+        loadChildren: () => import('./report/new-report/new-report.module').then(m => m.NewReportPageModule)
+      }
+    ]
   },
   {
     path: 'coursework-deadline',

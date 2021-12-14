@@ -11,6 +11,8 @@ export class NotificationService {
   constructor(private authService: AuthService, private http: HttpClient) { }
 
   getCurrentNotifications() {
+    console.log(this.authService.httpOptions)
+
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/notifications' + '?status=current' , this.authService.httpOptions);
   }
 

@@ -13,6 +13,8 @@ export class AuthGuard implements CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      console.log('Authentication can load' + this.authService.userIsAuthenticated);
+
       if (this.authService.userIsAuthenticated === false) {
         this.router.navigateByUrl('/auth');
       }
@@ -23,7 +25,7 @@ export class AuthGuard implements CanLoad {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):
     Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('Authentication ' + this.authService.userIsAuthenticated);
+    console.log('Authentication can activate' + this.authService.userIsAuthenticated);
     if (this.authService.userIsAuthenticated === false) {
       this.router.navigateByUrl('/auth');
     }

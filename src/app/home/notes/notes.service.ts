@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { Note } from './notes.model';
 import { AuthService } from '../../auth/auth.service';

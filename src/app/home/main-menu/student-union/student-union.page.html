@@ -12,7 +12,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let studentUnion of loadedStudentUnion" size="6" size-sm="4"  class="ion-text-center">
-        <ion-card class="fix" href="{{studentUnion.path}}">
+        <ion-card class="fix" routerLink="{{studentUnion.path}}">
           <ion-card-header>
             <ion-icon color="primary" size="large" name="{{ studentUnion.icon }}"></ion-icon>
           </ion-card-header>

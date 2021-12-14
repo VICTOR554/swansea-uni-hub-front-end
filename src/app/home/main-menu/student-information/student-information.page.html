@@ -19,7 +19,7 @@
         <ion-card-header class="header">
           <ion-card-title class="title">General Information </ion-card-title>
         </ion-card-header>
-        <ion-list *ngFor="let studentInfo of loadedStudentInformation" class="content" lines="none">
+        <ion-list *ngFor="let studentInfo of loadedStudentInfo" class="content" lines="none">
           <ion-item>
             <ion-text>Name: {{studentInfo.name}}</ion-text>
           </ion-item>
@@ -55,7 +55,7 @@
         <ion-card-header class="header">
           <ion-card-title class="title">Course</ion-card-title>
         </ion-card-header>
-        <ion-list *ngFor="let studentInfo of loadedStudentInformation" class="content" lines="none">
+        <ion-list *ngFor="let studentInfo of loadedStudentInfo" class="content" lines="none">
           <ion-item>
             <ion-text>Course: {{studentInfo.courseId}}</ion-text>
           </ion-item>
@@ -89,7 +89,7 @@
         <ion-card-header class="header">
           <ion-card-title class="title">Module</ion-card-title>
         </ion-card-header>
-        <ion-list *ngFor="let studentInfo of loadedStudentInformation" class="content" lines="none">
+        <ion-list *ngFor="let studentInfo of loadedStudentInfo" class="content" lines="none">
           <ion-item>
             <ion-text>Modules: {{studentInfo.modules.name[1]}}, {{studentInfo.modules.name[2]}}, {{studentInfo.modules.name[3]}}</ion-text>
           </ion-item>
@@ -112,7 +112,7 @@
         <ion-card-header class="header">
           <ion-card-title class="title">Finance </ion-card-title>
         </ion-card-header>
-        <ion-list *ngFor="let studentInfo of loadedStudentInformation" class="content" lines="none">
+        <ion-list *ngFor="let studentInfo of loadedStudentInfo" class="content" lines="none">
           <ion-item>
             <ion-text>Tuition Fee: {{studentInfo.finance.tuitionBalance}}</ion-text>
           </ion-item>

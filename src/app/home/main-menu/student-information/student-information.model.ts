@@ -42,3 +42,57 @@ export class Duration {
     public endTime: string,
     ) {}
 }
+
+
+
+// export class StudentInformation {
+//   constructor(
+//     public number: number,
+//     public name: string,
+//     public gender: string,
+//     public dateOfBirth: string,
+//     public nationality: string,
+//     public telephone: string,
+//     public email: string,
+//     public address: string,
+//     public homeCampus: string,
+//     public department: string,
+//     public degree: string,
+//     public status: string,
+//     public enrollement: boolean,
+//     public duration: Duration,
+//     public courseCode: string,
+//     public moduleCode: string,
+
+//     ) {}
+// }
+
+// export class Module {
+//   constructor(
+//     public name: string,
+//     public code: string,
+//     public courseCode: number,
+//     ) {}
+// }
+
+// export class Finance {
+//   constructor(
+//     public studentNumber: number,
+//     public tuition: {
+//        initial: number,
+//        payment: number[],
+//        remainder: number,
+//     },
+//     public accomodation: {
+//       initial: number,
+//       payment: number[],
+//       remainder: number,
+//    }
+//     ) {}
+// }
+// export class Duration {
+//   constructor(
+//     public startDateTime: string,
+//     public endDateTime: string,
+//     ) {}
+// }

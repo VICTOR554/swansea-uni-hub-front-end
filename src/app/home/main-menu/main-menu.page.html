@@ -19,7 +19,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let menu of loadedMenu" size="6" size-sm="4"  class="ion-text-center">
-        <ion-card  href="{{menu.path}}">
+        <ion-card  routerLink="{{menu.path}}">
           <ion-card-header>
             <ion-icon color="primary" size="large" name="{{ menu.icon }}"></ion-icon>
           </ion-card-header>

@@ -23,8 +23,8 @@
   <ion-grid class="nopadding">
     <ion-row class="nopadding">
       <ion-col class="nopadding">
-        <ion-list class="nopadding" *ngFor="let courseworkDeadline of loadedCourseworkDeadline">
-          <ion-card *ngIf=" selectSegment === 'current' &&  courseworkDeadline.status === 'current'">
+        <ion-list class="nopadding" *ngFor="let courseworkDeadline of loadedCurrentCoursework">
+          <ion-card *ngIf=" selectSegment === 'current'">
             <ion-grid class="nopadding">
               <ion-row class="nopadding">
                 <ion-col>
@@ -35,7 +35,7 @@
                   </ion-row>
                   <ion-row>
                     <ion-col>
-                      <ion-text>{{courseworkDeadline.title}}</ion-text>
+                      <ion-text>{{courseworkDeadline.name}}</ion-text>
                     </ion-col>
                   </ion-row>
 
@@ -43,11 +43,11 @@
 
                     <div class="content" class="pbs">
                       <ion-icon name="link" color="primary" class="pt"></ion-icon>
-                      <p class="space-left">{{courseworkDeadline.lecturerName}}</p>
+                      <p class="space-left">{{courseworkDeadline.moduleCode}}</p>
                     </div>
                     <div class="content" class="pbs">
                       <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
-                      <p class="space-left">{{courseworkDeadline.dueDate}}</p>
+                      <p class="space-left">{{courseworkDeadline.dueDateTime}}</p>
                     </div>
                     <div class="content" class="pbs">
                       <ion-icon color="primary" name="bar-chart-outline" class="pt"></ion-icon>
@@ -62,8 +62,8 @@
           </ion-card>
         </ion-list>
 
-        <ion-list class="nopadding" *ngFor="let courseworkDeadline of loadedCourseworkDeadline">
-          <ion-card *ngIf=" selectSegment === 'past' &&  courseworkDeadline.status === 'past'">
+        <ion-list class="nopadding" *ngFor="let courseworkDeadline of loadedCurrentCoursework">
+          <ion-card *ngIf=" selectSegment === 'past'">
             <ion-grid class="nopadding">
               <ion-row class="nopadding">
                 <ion-col>
@@ -74,7 +74,7 @@
                   </ion-row>
                   <ion-row>
                     <ion-col>
-                      <ion-text>{{courseworkDeadline.title}}</ion-text>
+                      <ion-text>{{courseworkDeadline.name}}</ion-text>
                     </ion-col>
                   </ion-row>
 
@@ -82,11 +82,11 @@
 
                     <div class="content" class="pbs">
                       <ion-icon name="link" color="primary" class="pt"></ion-icon>
-                      <p class="space-left">{{courseworkDeadline.lecturerName}}</p>
+                      <p class="space-left">{{courseworkDeadline.moduleCode}}</p>
                     </div>
                     <div class="content" class="pbs">
                       <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
-                      <p class="space-left">{{courseworkDeadline.dueDate}}</p>
+                      <p class="space-left">{{courseworkDeadline.dueDateTime}}</p>
                     </div>
                     <div class="content" class="pbs">
                       <ion-icon color="primary" name="bar-chart-outline" class="pt"></ion-icon>

@@ -63,15 +63,15 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   onGetModule(moduleCode) {
     if (moduleCode === 'No data') {
       this.loadedModules.push({
-        name: 'No data',
-        code: 'No data',
+        name: '',
+        code: '',
         courseCode: 0
       });
     } else {
       this.taskSub = this.tasksService.getModule(moduleCode).subscribe((module: any) => {
         this.loadedModules.push(module.data);
         console.log('Module Code', moduleCode);
-        console.log('Module', module);
+        console.log('Module', module.data);
         console.log('modules for the week', this.loadedModules);
       });
     }
