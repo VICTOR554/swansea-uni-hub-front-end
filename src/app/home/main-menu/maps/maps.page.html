@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>maps</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/tabs/list-view"></ion-back-button>
+    </ion-buttons>
+    <ion-title >location- {{loadedMaps[0].name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="mobile" >
+          <div class="web">
+            <ion-img class="location-image" [src]="selectedLocationImage"></ion-img>
+          </div>
 
+            <ion-button (click)="getMapImage(loadedMaps[0].lat, loadedMaps[0].lng, 18, loadedMaps[0].key)">
+              <ion-icon ></ion-icon>
+              <p>Map</p>
+            </ion-button>
+
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -17,7 +17,7 @@
                 </div>
                 <div class="task-details" class="pbs">
                   <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
-                  <p class="space-left"> {{ overdueTask.dueDateTime }}</p>
+                  <p class="space-left"> {{ overdueTask.dueDateTime | momentPipe: "ddd DD MMM YYYY hh:mm a"}}</p>
                 </div>
               </ion-label>
             </ion-item>
@@ -32,7 +32,7 @@
               </ion-item-option>
               <ion-item-option color="warning" (click)="unflagTask(overdueTask, slidingItem)" *ngIf="overdueTask.flagged === true">
                 <ion-icon name="flag" slot="top" class="icon"></ion-icon>
-                Flag
+                Unflag
               </ion-item-option>
               <ion-item-option color="danger" (click)="onDeleteTask(overdueTask._id, slidingItem)">
                 <ion-icon name="trash" slot="top" class="icon"></ion-icon>

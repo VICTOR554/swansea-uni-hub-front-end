@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { FlaggedTasksPageRoutingModule } from './flagged-tasks-routing.module';
 
 import { FlaggedTasksPage } from './flagged-tasks.page';
+import { SharedModule } from '../../../shared/shared.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FlaggedTasksPageRoutingModule
+    FlaggedTasksPageRoutingModule,
+    SharedModule
   ],
   declarations: [FlaggedTasksPage]
 })

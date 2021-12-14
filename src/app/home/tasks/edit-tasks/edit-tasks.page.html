@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="/home/tabs/tasks"></ion-back-button>
     </ion-buttons>
 
-    <ion-title *ngIf="form" class="ion-text-center">Edit Task- Task title</ion-title>
+    <ion-title *ngIf="form" class="ion-text-center">Edit Task- {{loadedalltask.title}}</ion-title>
 
     <ion-buttons slot="primary">
       <ion-button *ngIf="form" (click)="onUpdateTask()"  [disabled]="!form.valid" type="submit"   >
@@ -38,9 +38,9 @@
           <ion-item>
             <ion-label position="floating">Module</ion-label>
             <ion-select placeholder="Select a Module" autocomplete autocorrect formControlName="moduleCode">
-              <ion-select-option value="0">Blank</ion-select-option>
-              <ion-select-option value="CSC313 & CSCM13">High Integrity Systems/Critical Systems</ion-select-option>
-              <ion-select-option value="CSC348 & CSCM48">Web Application Development</ion-select-option>
+              <ion-select-option value="">Blank</ion-select-option>
+              <ion-select-option value="CSC313&CSCM13">High Integrity Systems/Critical Systems</ion-select-option>
+              <ion-select-option value="CSC348&CSCM48">Web Application Development</ion-select-option>
               <ion-select-option value="CSCM08">Information Security Management </ion-select-option>
               <ion-select-option value="CSM20">MSc Project</ion-select-option>
             </ion-select>
@@ -60,8 +60,8 @@
             <ion-datetime
             display-format="DDD DD MMM YYYY hh:mm A"
             picker-format="DD MMM YYYY  hh:mm A"
-            value="{{currentDate | date: 'DD/MMM/YYYY' }}"
-            min="{{currentDate | date: 'yyyy-MM-dd' }}"
+            [(ngModel)]="dueDate"
+            min="{{currentDate}}"
             max="2040-12-31"
             minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"
             required formControlName="dueDateTime"></ion-datetime>

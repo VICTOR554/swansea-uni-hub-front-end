@@ -57,8 +57,8 @@ export class CompletedTasksPage implements OnInit, OnDestroy {
  onGetModule(moduleCode) {
   if (moduleCode === 'No module') {
     this.loadedModules.push({
-      name: 'No module',
-      code: 'No module',
+      name: '',
+      code: '',
       courseCode: 0
     });
 

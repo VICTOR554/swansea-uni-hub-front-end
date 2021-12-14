@@ -17,7 +17,7 @@
                 </div>
                 <div class="task-details" class="pbs">
                   <ion-icon color="primary" name="calendar" class="pt"></ion-icon>
-                  <p class="space-left"> {{ flaggedTask.dueDateTime }}</p>
+                  <p class="space-left"> {{ flaggedTask.dueDateTime | momentPipe: "ddd DD MMM YYYY hh:mm a"}}</p>
                 </div>
               </ion-label>
             </ion-item>

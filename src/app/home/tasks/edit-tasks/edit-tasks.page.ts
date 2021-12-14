@@ -29,12 +29,13 @@ export class EditTasksPage implements OnInit, OnDestroy {
     this.route.paramMap.subscribe(paramMap => {
       // check if it has the note id if not go back to notes
       if (!paramMap.has('taskId')) {
+        console.log("ID ",'taskId');
+
         this.navCtrl.navigateBack('/home/tabs/tasks');
         return;
       }
-      this.currentDate = new Date().toISOString();
       this.taskSub = this.tasksService.getOneTask(paramMap.get('taskId')).subscribe((alltasks: any) => {
-        this.loadedalltask = alltasks.data;
+        this.loadedalltask = alltasks;
         console.log('task', this.loadedalltask);
         // load detail of item in form by removing null and calling the title and description
         this.form = new FormGroup({
@@ -89,7 +90,7 @@ export class EditTasksPage implements OnInit, OnDestroy {
                 setTimeout(() => {
                     loadingEl.dismiss();
                     this.form.reset();
-                    this.router.navigate(['/home/tabs/tasks']);
+                    this.router.navigate(['/home/tabs/tasks/in-progress']);
                 }, 1000);
             });
     });

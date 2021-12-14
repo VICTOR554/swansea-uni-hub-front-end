@@ -19,7 +19,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   constructor(private tasksService: TasksService, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
-    this.receiveInProgressTasks();
+    this.ionViewWillEnter();
   }
   ionViewWillEnter() {
     this.receiveInProgressTasks();
@@ -32,9 +32,6 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
         this.taskSub = this.tasksService.getInProgressTasks().subscribe((inProgressTasks: any) => {
           this.loadedInProgressTasks = inProgressTasks.data;
           console.log("In progress task", inProgressTasks.data);
-
-
-
 
           this.loadedModules = [];
 
@@ -61,7 +58,7 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
 
   // gets module name
   onGetModule(moduleCode) {
-    if (moduleCode === 'No data') {
+    if (moduleCode === 'No module') {
       this.loadedModules.push({
         name: '',
         code: '',

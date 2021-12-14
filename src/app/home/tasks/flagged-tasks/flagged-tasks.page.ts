@@ -57,8 +57,8 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
   onGetModule(moduleCode) {
     if (moduleCode === 'No module') {
       this.loadedModules.push({
-        name: 'No module',
-        code: 'No module',
+        name: '',
+        code: '',
         courseCode: 0
       });
 
@@ -67,7 +67,7 @@ export class FlaggedTasksPage implements OnInit, OnDestroy {
         this.loadedModules.push(module.data);
         console.log('Module Code', moduleCode);
         console.log('Module', module.data);
-        console.log('modules for the week', this.loadedModules);
+        console.log('modules tasks', this.loadedModules);
       });
     }
   }

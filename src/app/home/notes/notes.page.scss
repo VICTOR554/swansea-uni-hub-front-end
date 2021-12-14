@@ -18,7 +18,30 @@
 
 .icon {
   padding-top: 2px;
+
 }
+
+
+.nopadding {
+  padding: 0px !important;
+}
+
+.textcenter {
+  text-align: center !important;
+}
+.marginbottom {
+  margin-bottom: 2px !important;
+}
+
+.nomargin {
+  margin: 0px !important;
+}
+
+.nopadding.textcenter {
+  padding: 0px !important;
+  text-align: center !important;
+}
+
 
 
 

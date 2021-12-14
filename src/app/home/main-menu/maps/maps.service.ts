@@ -7,16 +7,20 @@ import { Maps } from './maps.model';
 export class MapsService {
 
   private _maps: Maps [] = [
-    // new Maps(
-    //   'Bay',
-    //   51,
-    //   -3,
-    //   ''
-
-    // )
+    new Maps(
+      'Bay',
+      51,
+      -3,
+      'AIzaSyA6mwflG5S0OM5mCCQ5ZPr55ChOJGgEaQc'
+    )
 
 
   ];
+
+  get maps() {
+    // eslint-disable-next-line no-underscore-dangle
+    return [...this._maps];
+  }
 
 
   constructor() { }

@@ -19,5 +19,7 @@ export class NotificationService {
   getPastNotifications() {
     return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/notifications' + '?status=past', this.authService.httpOptions);
   }
-
+  getModule(moduleCode: string) {
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/modules/' + moduleCode, this.authService.httpOptions);
+  }
 }
