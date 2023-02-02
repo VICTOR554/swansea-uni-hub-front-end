@@ -1,8 +1,10 @@
 export class CourseworkDeadline {
   constructor(
-    public name: string,
-    public moduleCode: string,
+    public moduleName: string,
+    public title: string,
+    public lecturerName: string,
+    public dueDate: string,
+    public status: string,
     public percentage: number,
-    public dueDateTime: number,
     ) {}
 }

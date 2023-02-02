@@ -4,11 +4,11 @@
       <ion-row>
 
         <!-- Reset  -->
-        <ion-buttons>
+        <!-- <ion-buttons>
           <ion-button slot="icon-only">
             <ion-icon name="refresh-outline"></ion-icon>
           </ion-button>
-        </ion-buttons>
+        </ion-buttons> -->
 
         <!-- Current Date -->
         <ion-col>
@@ -16,22 +16,16 @@
         </ion-col>
 
         <!-- New Timetable -->
-        <ion-buttons class="nopadding textcenter">
+        <!-- <ion-buttons class="nopadding textcenter">
           <ion-button slot="icon-only">
             <ion-icon name="add-outline"></ion-icon>
           </ion-button>
-        </ion-buttons>
+        </ion-buttons> -->
       </ion-row>
 
       <ion-row>
         <ion-col class="nopadding">
-          <p class="nopadding textcenter">(Week - 2)</p>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col class="">
-        <ion-icon class="textcenter" name="chevron-down-outline"></ion-icon>
+          <p *ngIf="loadedWeek !== undefined" class="nopadding textcenter">(Week - {{ loadedWeek.number }})</p>
         </ion-col>
       </ion-row>
 
@@ -146,32 +140,6 @@
                   </ion-row>
 
 
-                  <!--This is the row viewed when there is no activity-->
-    <ion-row *ngIf="noActivity === true">
-      <ion-col size-sm="12" offset-sm="3" class="nomargin">
-        <h1 class="textcenter"> No Lectures Today</h1>
-        <p class="textcenter">Would you like to do some Tasks?</p>
-
-        <ion-row>
-          <ion-col class="nopadding textcenter">
-            <ion-label>In Progress</ion-label>
-            <br>
-            <ion-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'in-progress']">
-              <ion-icon name="albums"></ion-icon>
-            </ion-button>
-          </ion-col>
-
-          <ion-col class="nopadding textcenter " [routerLink]="['/', 'home', 'tabs', 'tasks', 'flags']">
-            <ion-label>Flags</ion-label>
-            <br>
-            <ion-button>
-              <ion-icon name="flag"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-
 
                 </ion-col>
               </ion-row>
@@ -182,6 +150,32 @@
     </ion-row>
 
 
+
+                  <!--This is the row viewed when there is no activity-->
+                  <ion-row *ngIf="noActivity === true">
+                    <ion-col size-sm="12" offset-sm="3" class="nomargin">
+                      <h1 class="textcenter"> No Lectures Today</h1>
+                      <p class="textcenter">Would you like to do some Tasks?</p>
+
+                      <ion-row>
+                        <ion-col class="nopadding textcenter">
+                          <ion-label>In Progress</ion-label>
+                          <br>
+                          <ion-button [routerLink]="['/', 'home', 'tabs', 'tasks', 'in-progress']">
+                            <ion-icon name="albums"></ion-icon>
+                          </ion-button>
+                        </ion-col>
+
+                        <ion-col class="nopadding textcenter " [routerLink]="['/', 'home', 'tabs', 'tasks', 'flags']">
+                          <ion-label>Flags</ion-label>
+                          <br>
+                          <ion-button>
+                            <ion-icon name="flag"></ion-icon>
+                          </ion-button>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
 
   </ion-grid>
 </ion-content>

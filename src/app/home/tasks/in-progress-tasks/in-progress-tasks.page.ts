@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { IonItemSliding, LoadingController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { Task, Module } from '../tasks.model';
@@ -14,9 +15,25 @@ export class InProgressTasksPage implements OnInit, OnDestroy {
   loadedInProgressTasks: Task[];
   loadedModules: Module[];
   private taskSub: Subscription;
+  selectedPath1 = '/home/tabs/tasks';
+  selectedPath2 = '/home/tabs/tasks/in-progress';
+  counter = 0;
 
 
-  constructor(private tasksService: TasksService, private loadingCtrl: LoadingController) { }
+  constructor(private tasksService: TasksService, private loadingCtrl: LoadingController, private router: Router,) {
+    this.router.events.subscribe((event: RouterEvent) => {
+      // console.log(event)
+      if (event.url !== undefined && event instanceof NavigationEnd) {
+        if ((event.url === this.selectedPath1 || event.url === this.selectedPath2) && this.counter !== 0) {
+          this.ionViewWillEnter();
+          console.log('refreshed page');
+          console.log('counter = ', this.counter);
+        }
+        this.counter = this.counter + 1;
+      }
+
+    });
+   }
 
   ngOnInit() {
     this.ionViewWillEnter();

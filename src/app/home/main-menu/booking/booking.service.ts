@@ -13,7 +13,7 @@ export class BookingService {
       'current',
       'online',
       'computer foundary 201',
-      '17/11/2021',
+      '1/11/2022',
     ),
     new Booking(
       2,
@@ -21,7 +21,7 @@ export class BookingService {
       'current',
       'online',
       'computer foundary 201',
-      '17/11/2021',
+      '12/11/2022',
     ),
     new Booking(
       3,

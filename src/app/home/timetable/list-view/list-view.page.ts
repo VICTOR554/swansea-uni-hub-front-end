@@ -61,11 +61,14 @@ export class ListViewPage implements OnInit, OnDestroy {
           this.loadedActivity = activities;
           console.log('Current day', currentDay);
           console.log('Activity', activities);
+
           if (activities.length === 0) {
             this.noActivity = true;
           } else {
             this.noActivity = false;
           }
+          console.log('NO', this.noActivity);
+
           this.loadedModules = [];
           // checks the module code and calls getmodule to get module name
           activities.forEach(element => {

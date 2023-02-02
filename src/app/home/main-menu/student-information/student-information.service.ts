@@ -6,6 +6,7 @@ import { StudentInformation, Module, Finance, Duration } from './student-informa
 })
 export class StudentInformationService {
 
+
   private _studentInformation: StudentInformation[] = [
     new StudentInformation(
       1234567,
@@ -48,7 +49,7 @@ export class StudentInformationService {
   // constructor(private authService: AuthService, private http: HttpClient) { }
 
   // getStudent() {
-  //   return this.http.get('http://swansea-uni-hub-api.herokuapp.com/student/current', this.authService.httpOptions);
+  //   return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/current', this.authService.httpOptions);
   // }
   // getModule(moduleCode: string) {
   //   return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/modules/' + moduleCode, this.authService.httpOptions);

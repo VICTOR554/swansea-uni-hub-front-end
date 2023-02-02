@@ -7,7 +7,7 @@
         <ion-searchbar showCancelButton="focus"></ion-searchbar>
         <ion-list>
           <ion-item-sliding *ngFor="let flaggedTask of loadedFlaggedTasks; let i = index" #slidingItem>
-            <ion-item [routerLink]="['/', 'home', 'tabs', 'tasks', 'edit', flaggedTask._id]" detail>
+            <ion-item  detail>
               <ion-label>
                 <ion-text>{{ flaggedTask.title }}</ion-text>
 

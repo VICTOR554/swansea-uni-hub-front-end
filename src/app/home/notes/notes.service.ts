@@ -12,12 +12,12 @@ export class NotesService {
   constructor(private authService: AuthService, private http: HttpClient) { }
 
   getAllNotes() {
-    return this.http.get('http://swansea-uni-hub-api.herokuapp.com/student/notes/all', this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/notes/all', this.authService.httpOptions);
   }
 
   getOneNote(noteId: string) {
     console.log(noteId);
-    return this.http.get('http://swansea-uni-hub-api.herokuapp.com/student/notes/one/' + noteId, this.authService.httpOptions);
+    return this.http.get('https://swansea-uni-hub-api.herokuapp.com/student/notes/one/' + noteId, this.authService.httpOptions);
 
   }
   getModule(moduleCode: string) {
@@ -33,7 +33,7 @@ export class NotesService {
       dateTime,
       description,
     );
-    return this.http.post('http://swansea-uni-hub-api.herokuapp.com/student/notes/new', newNote, this.authService.httpOptions);
+    return this.http.post('https://swansea-uni-hub-api.herokuapp.com/student/notes/new', newNote, this.authService.httpOptions);
   }
 
   updateNote(title: string, moduleCode: string, description: string, noteId: string) {
@@ -46,11 +46,11 @@ export class NotesService {
       description,
 
     );
-    return this.http.put('http://swansea-uni-hub-api.herokuapp.com/student/notes/update/' + noteId, updatedNote, this.authService.httpOptions);
+    return this.http.put('https://swansea-uni-hub-api.herokuapp.com/student/notes/update/' + noteId, updatedNote, this.authService.httpOptions);
   }
 
   deleteNote(noteId: string) {
-    return this.http.delete('http://swansea-uni-hub-api.herokuapp.com/student/notes/delete/' + noteId, this.authService.httpOptions);
+    return this.http.delete('https://swansea-uni-hub-api.herokuapp.com/student/notes/delete/' + noteId, this.authService.httpOptions);
   }
 
 }
